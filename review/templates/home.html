@@ -1,0 +1,38 @@
+<!DOCTYPE HTML>
+<html lang="pt-br">
+<head>
+	<meta charset="UTF-8">
+	 <link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}layout.css"/>
+	<title></title>
+</head>
+<body>
+    <div id="top"></div>
+	<header>
+
+        <h1><a href="">PyMinds</a></h1>
+
+	</header>
+	<div id="content">
+		<div class="left">
+
+        <h3 class="title">Question</h3>
+            <form method='POST' action=''>
+         {% csrf_token %}
+        {{ form }}
+         <input type="submit" id="btSubmit" value="Raise">
+                </form>
+
+		</div>
+		<div class="line"></div>
+		<div class="right">
+            <ul>
+        {% for question in questions %}
+            <li>{{question}}</li>
+        {% endfor %}
+      </ul>
+
+		</div>
+	</div>
+{#	<footer>@copright, designed for structs programes</footer>#}
+</body>
+</html>

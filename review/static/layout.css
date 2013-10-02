@@ -1,0 +1,25 @@
+html, body, div {margin: 0;padding: 0;}
+#top	{width: 100%;margin: 0 auto;height: 25px;background: dodgerblue;border: 1px solid dodgerblue;padding-left: 10px;}
+header	{font-family: Geneva;width: 100%;margin: 0 auto;height: 110px; border: 1px solid aliceblue;background: aliceblue; padding-left: 10px;}
+#content {width: 100%;margin: 0 auto;overflow: hidden;}
+#content .left {float: left;width: 900px;height: 550px;padding-left: 10px; padding-top: 30px;text-align: center;}
+#content .left #id_text {resize: none;width:400px;height:100px;border: 1px solid dimgray; border-radius: 3px 3px 3px 3px}
+#content .left #btSubmit {
+    text-transform: uppercase;
+    border: medium none;
+    cursor: pointer;
+    color: white;
+    margin-left:300px;
+    background: none repeat scroll 0 0 dodgerblue;
+    width: 90px;
+    height:35px;
+    font-weight: 700;
+    font-family: Geneva;
+    font-size: 12px;
+    border-radius: 3px 3px 3px 3px;
+}
+
+#content .left .title {font-family: Geneva; font-size: 18px;border-left: 3px solid dodgerblue}
+#content .line {float: left;width: 1px;height: 550px;background: black;}
+#content .right {float: left;	width: 365px;height: 550px;}
+footer {height: 100px;width: 100%;margin: 0 auto; border: 1px solid dodgerblue;background: dodgerblue;text-align: center;padding-top: 10px;}
