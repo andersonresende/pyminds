@@ -29,13 +29,14 @@ header a {
     margin-left:300px;
     background: none repeat scroll 0 0 dodgerblue;
     width: 90px;
-    height:35px;
+    height:32px;
     font-weight: 700;
     font-family: Geneva;
     font-size: 12px;
     border-radius: 3px 3px 3px 3px;
 }
-
+#content .left #btSubmit:hover {border: 1px solid lightsteelblue;border-radius: 3px 3px 3px 3px;}/*background: none repeat scroll 0 0 #2D2D2D}
+*/
 #content .left .title {
     font-family: Geneva;
     font-size: 16px;
