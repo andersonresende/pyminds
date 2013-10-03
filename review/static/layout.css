@@ -1,9 +1,26 @@
 html, body, div {margin: 0;padding: 0;}
 #top	{margin: 0 auto;height: 25px;background: dodgerblue;border: 1px solid dodgerblue;padding-left: 10px;}
-header	{font-family: Geneva; margin: 0 auto;height: 110px; border: 1px solid aliceblue;background: aliceblue; padding-left: 10px;}
+header	{font-family: Geneva; margin: 0 auto;height: 110px; border: 1px solid #D9D9D9;background: #F9F7F7; padding-left: 40px;}
+header a {
+    float: left;
+    text-decoration:none;
+    color:black;
+}
 #content {width: 100%;margin: 0 auto;overflow: hidden;}
-#content .left {float: left;width: 70%;height: 600px;padding-left: 10px; padding-top: 30px;text-align: center;}
-#content .left #id_text {resize: none;width:400px;height:100px;border: 1px solid dimgray; border-radius: 3px 3px 3px 3px}
+#content .left {float: left;width: 60%;height: 600px;padding-left: 40px; padding-top: 30px;}
+#content .left #id_text {
+    font-family: Geneva;
+    font-size: 14px;
+    resize: none;
+    width:400px;
+    height:100px;
+    border: 1px solid #D9D9D9;
+    border-radius: 3px 3px 3px 3px;
+    transition: all 0.5s ease 0s;
+    z-index: 1;
+
+}
+#content .left #id_text:focus{border-color:lightsteelblue }
 #content .left #btSubmit {
     text-transform: uppercase;
     border: medium none;
@@ -19,7 +36,28 @@ header	{font-family: Geneva; margin: 0 auto;height: 110px; border: 1px solid ali
     border-radius: 3px 3px 3px 3px;
 }
 
-#content .left .title {font-family: Geneva; font-size: 18px;border-left: 3px solid dodgerblue}
-#content .line {float: left;width: 1px;height: 600px;background: black;}
-#content .right {float: left;height: 600px;}
+#content .left .title {
+    font-family: Geneva;
+    font-size: 16px;
+    border-left: 3px solid dodgerblue  ;
+    font-weight: 700;
+    padding-left: 3px;
+    /*color: dodgerblue;*/
+}
+#content .line {
+    float: left;
+    width: 1px;
+    height: 600px;
+    background: #D9D9D9;
+}
+#content .right {
+    float: left;
+    height: 600px;
+    font-family: Geneva;
+    font-size: 15px;
+}
+#content .right ul {
+    list-style-type: none;
+    padding-top: 35px;
+}
 footer {height: 70px;margin: 0 auto; border: 1px solid dodgerblue;background: dodgerblue;text-align: center;padding-top: 10px;}

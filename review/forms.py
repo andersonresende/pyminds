@@ -6,4 +6,4 @@ class QuestionForm(forms.ModelForm):
     class Meta:
         model = Question
         exclude = ('date',)
-        widgets = {'text': forms.Textarea()}
+        widgets = {'text': forms.Textarea(attrs={"placeholder": "Insert your question here..."})}
