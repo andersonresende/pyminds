@@ -24,16 +24,19 @@
                 </form>
 
 		</div>
-{#		<div class="line"></div>#}
-{#		<div class="right">#}
-{#            <ul>#}
-{#        {% for question in questions %}#}
-{#            <li>"{{question|truncatechars:30}}"</li>#}
-{#        {% endfor %}#}
-{#      </ul>#}
-{##}
-{#		</div>#}
+		<div class="line"></div>
+		<div class="right">
+           <ul>
+        {% for question in questions %}
+            <li>{{question}}</li>
+       {% endfor %}
+
+		</div>
 	</div>
-{#	<footer>@copright, designed for structs programes</footer>#}
+<!-- <footer> <ul>
+        {% for question in questions %}
+            <li>{{question}}</li>
+       {% endfor %}
+     </ul></footer> -->
 </body>
 </html>

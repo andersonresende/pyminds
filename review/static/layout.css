@@ -56,9 +56,36 @@ header a {
     height: 600px;
     font-family: Geneva;
     font-size: 15px;
+    width:35%;
+    background: #F9F7F7;
 }
 #content .right ul {
     list-style-type: none;
-    padding-top: 35px;
+    padding-left: 7px;
+
+
 }
-footer {height: 70px;margin: 0 auto; border: 1px solid dodgerblue;background: dodgerblue;text-align: center;padding-top: 10px;}
+#content .right ul li {
+    margin-bottom: 4px;
+    /*margin-top: 7px;*/
+    border-bottom: 0.5px solid dodgerblue;
+}
+#content .right ul li:hover {
+    border: 1px solid dodgerblue;
+    border-radius: 3px 3px 3px 3px;
+    background:dodgerblue;
+    color:white;
+    font-size: 17px;
+
+}
+/*footer {
+    margin: 0 auto; 
+    border: 1px solid dodgerblue;
+    background: dodgerblue;
+    text-align: center;
+    padding-top: 10px;
+    color: lightsteelblue;
+    /*width: 100%;*/
+}
+footer ul {list-style-type: none;}
+footer ul li:hover {color:black;}*/
