@@ -7,7 +7,7 @@ header a {
     color:black;
 }
 #content {width: 100%;margin: 0 auto;overflow: hidden;}
-#content .left {float: left;width: 60%;height: 600px;padding-left: 40px; padding-top: 30px;}
+#content .left {float: left;width: 60%;height: 600px;padding-left: 40px; padding-top: 25px;}
 #content .left #id_text {
     font-family: Geneva;
     font-size: 14px;
@@ -43,7 +43,7 @@ header a {
     border-left: 3px solid dodgerblue  ;
     font-weight: 700;
     padding-left: 3px;
-    /*color: dodgerblue;*/
+    color: #2D2D2D;
 }
 #content .line {
     float: left;
@@ -58,15 +58,17 @@ header a {
     font-size: 15px;
     width:35%;
     background: #F9F7F7;
+    margin-top: 20px;
 }
 #content .right ul {
     list-style-type: none;
     padding-left: 7px;
+    color: #2D2D2D;
 
 
 }
 #content .right ul li {
-    margin-bottom: 4px;
+    margin-bottom: 5px;
     /*margin-top: 7px;*/
     border-bottom: 0.5px solid dodgerblue;
 }
@@ -75,7 +77,9 @@ header a {
     border-radius: 3px 3px 3px 3px;
     background:dodgerblue;
     color:white;
-    font-size: 17px;
+    font-size: 15px;
+    margin-bottom: 10px;
+    margin-top: 10px;
 
 }
 /*footer {
