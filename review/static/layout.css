@@ -5,6 +5,9 @@ header a {
     float: left;
     text-decoration:none;
     color:black;
+   /* border-bottom: 1px solid dodgerblue;*/
+   /*border-bottom: 3px solid dodgerblue;
+   border-left: 3px solid lightsteelblue;*/
 }
 #content {width: 100%;margin: 0 auto;overflow: hidden;}
 #content .left {float: left;width: 60%;height: 600px;padding-left: 40px; padding-top: 25px;}
