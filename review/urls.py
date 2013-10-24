@@ -5,6 +5,6 @@ from .views import application_home, schedule_page
 
 urlpatterns = patterns(
     '',
-   url (r'^$', application_home,),
+   url (r'^$', application_home,name='home'),
     url(r'^schedule/(.+)/$', schedule_page, name='schedule_page'),
 )

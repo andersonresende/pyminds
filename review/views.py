@@ -26,9 +26,9 @@ def application_home(request):
         if question_form.is_valid():
             question_form.save()
             questions = Question.objects.filter(review=None)
-            if len(questions) == 10:
+            if len(questions) == 5:
                 review = create_review(questions)
-                create_schedules(review, 0, 10, 20, 30, 40)
+                create_schedules(review, 5, 10, 20, 30, 40)
             return redirect('/')
     question_form = QuestionForm().as_p()
     schedules = Schedule.get_current_shedules()

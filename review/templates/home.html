@@ -1,4 +1,5 @@
-<!DOCTYPE HTML>
+{% extends 'base.html' %}
+
 <html lang="pt-br">
 <head>
 	<meta charset="UTF-8">
@@ -10,12 +11,12 @@
     <div id="top"></div>
 	<header>
 
-        <h1><a href="">PyMinds     </a></h1>
+        <h1><a href="{% url 'home' %}">PyMinds     </a></h1>
 
 	</header>
 	<div id="content">
-		<div class="left">
 
+        {% block content_left %}
         <h3 class="title">Question</h3>
             <form method='POST' action=''>
          {% csrf_token %}
@@ -23,15 +24,15 @@
          <input type="submit" id="btSubmit" value="Raise">
                 </form>
 
-		</div>
-		<div class="line"></div>
-		<div class="right">
+        {% endblock %}
+
+        {% block content_right %}
            <ul>
         {% for s in schedules %}
             <li><a href="{% url 'schedule_page' s.id %}">{{s}}</a></li>
        {% endfor %}
-
-		</div>
+            </ul>
+		{% endblock %}
     </div>
 <!-- <footer> <ul>
              </ul></footer> -->

@@ -73,10 +73,10 @@ class MainTest(TestCase):
 
         """
         client = Client()
-        for n in range(1,11):
+        for n in range(1,6):
             response = client.post('/', data={'text': 'q%s' % n})
         questions = Question.objects.all()
-        self.assertEqual(10, len(questions))
+        self.assertEqual(5, len(questions))
         reviews = Review.objects.all()
         self.assertEqual(1, len(reviews))
         schedules = Schedule.objects.all()

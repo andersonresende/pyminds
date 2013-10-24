@@ -3,7 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="7d7a51c9-e786-4cde-8666-dd47e23f7ee4" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/review/templates/home.html" afterPath="$PROJECT_DIR$/review/templates/home.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/review/models.py" afterPath="$PROJECT_DIR$/review/models.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/review/templates/schedule.html" afterPath="$PROJECT_DIR$/review/templates/schedule.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/review/tests.py" afterPath="$PROJECT_DIR$/review/tests.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/review/urls.py" afterPath="$PROJECT_DIR$/review/urls.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/review/views.py" afterPath="$PROJECT_DIR$/review/views.py" />
@@ -16,14 +16,15 @@
     <file path="/wsgi.py" changelist="7d7a51c9-e786-4cde-8666-dd47e23f7ee4" time="1380716394624" ignored="false" />
     <file path="/settings.py" changelist="7d7a51c9-e786-4cde-8666-dd47e23f7ee4" time="1380716604244" ignored="false" />
     <file path="/layout.css" changelist="7d7a51c9-e786-4cde-8666-dd47e23f7ee4" time="1380766764284" ignored="false" />
-    <file path="/home.html" changelist="7d7a51c9-e786-4cde-8666-dd47e23f7ee4" time="1382571542059" ignored="false" />
+    <file path="/home.html" changelist="7d7a51c9-e786-4cde-8666-dd47e23f7ee4" time="1382576636376" ignored="false" />
     <file path="/views.py" changelist="7d7a51c9-e786-4cde-8666-dd47e23f7ee4" time="1382574860863" ignored="false" />
     <file path="/forms.py" changelist="7d7a51c9-e786-4cde-8666-dd47e23f7ee4" time="1381577079258" ignored="false" />
     <file path="/models.py" changelist="7d7a51c9-e786-4cde-8666-dd47e23f7ee4" time="1382558744605" ignored="false" />
     <file path="/tests.py" changelist="7d7a51c9-e786-4cde-8666-dd47e23f7ee4" time="1382575000293" ignored="false" />
     <file path="$PROJECT_DIR$/../superlists/lists/tests.py" changelist="7d7a51c9-e786-4cde-8666-dd47e23f7ee4" time="1381701925847" ignored="false" />
-    <file path="/urls.py" changelist="7d7a51c9-e786-4cde-8666-dd47e23f7ee4" time="1382569197211" ignored="false" />
-    <file path="/schedule.html" changelist="7d7a51c9-e786-4cde-8666-dd47e23f7ee4" time="1382575178654" ignored="false" />
+    <file path="/urls.py" changelist="7d7a51c9-e786-4cde-8666-dd47e23f7ee4" time="1382575552525" ignored="false" />
+    <file path="/schedule.html" changelist="7d7a51c9-e786-4cde-8666-dd47e23f7ee4" time="1382576783975" ignored="false" />
+    <file path="/base.html" changelist="7d7a51c9-e786-4cde-8666-dd47e23f7ee4" time="1382576708133" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -55,7 +56,7 @@
       <file leaf-file-name="tests.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/review/tests.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="157" column="42" selection-start="5399" selection-end="5399" vertical-scroll-proportion="0.0">
+            <state line="81" column="42" selection-start="2804" selection-end="2804" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -64,7 +65,7 @@
       <file leaf-file-name="urls.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/review/urls.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="8" column="7" selection-start="212" selection-end="212" vertical-scroll-proportion="0.0">
+            <state line="7" column="43" selection-start="213" selection-end="213" vertical-scroll-proportion="0.0">
               <folding>
                 <element signature="e#0#51#0" expanded="true" />
               </folding>
@@ -72,19 +73,28 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="schedule.html" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/review/templates/schedule.html">
+      <file leaf-file-name="base.html" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/review/templates/base.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="14" column="9" selection-start="238" selection-end="238" vertical-scroll-proportion="0.32307693">
+            <state line="18" column="26" selection-start="328" selection-end="328" vertical-scroll-proportion="-11.25">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="views.py" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="schedule.html" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/review/templates/schedule.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="6" column="8" selection-start="115" selection-end="115" vertical-scroll-proportion="-3.75">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="views.py" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/review/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="42" column="23" selection-start="1313" selection-end="1313" vertical-scroll-proportion="0.0">
+            <state line="28" column="35" selection-start="797" selection-end="797" vertical-scroll-proportion="0.6231454">
               <folding>
                 <element signature="e#0#15#0" expanded="true" />
               </folding>
@@ -95,7 +105,7 @@
       <file leaf-file-name="home.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/review/templates/home.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="22" column="28" selection-start="468" selection-end="468" vertical-scroll-proportion="-13.75">
+            <state line="25" column="0" selection-start="562" selection-end="562" vertical-scroll-proportion="-15.625">
               <folding />
             </state>
           </provider>
@@ -127,9 +137,10 @@
         <option value="$PROJECT_DIR$/review/models.py" />
         <option value="$PROJECT_DIR$/review/urls.py" />
         <option value="$PROJECT_DIR$/review/templates/home.html" />
+        <option value="$PROJECT_DIR$/review/templates/base.html" />
+        <option value="$PROJECT_DIR$/review/templates/schedule.html" />
         <option value="$PROJECT_DIR$/review/views.py" />
         <option value="$PROJECT_DIR$/review/tests.py" />
-        <option value="$PROJECT_DIR$/review/templates/schedule.html" />
       </list>
     </option>
   </component>
@@ -343,6 +354,13 @@
       <option name="USE_PATTERN" value="false" />
       <method />
     </configuration>
+    <configuration default="true" type="JavascriptDebugSession" factoryName="Local" singleton="true">
+      <JSDebuggerConfigurationSettings>
+        <option name="engineId" />
+        <option name="fileUrl" />
+      </JSDebuggerConfigurationSettings>
+      <method />
+    </configuration>
     <configuration default="false" name="pyminds" type="Python.DjangoServer" factoryName="Django server">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -482,16 +500,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/pyminds/settings.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="14" column="25" selection-start="318" selection-end="318" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pyminds/__init__.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/pyminds/wsgi.py">
       <provider selected="true" editor-type-id="text-editor">
         <state line="15" column="9" selection-start="666" selection-end="666" vertical-scroll-proportion="0.33382788" />
@@ -553,42 +561,56 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/review/urls.py">
+    <entry file="jar://$APPLICATION_HOME_DIR$/lib/pycharm.jar!/resources/html5-schema/block.rnc">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="8" column="7" selection-start="212" selection-end="212" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="e#0#51#0" expanded="true" />
-          </folding>
+        <state line="199" column="10" selection-start="3748" selection-end="3754" vertical-scroll-proportion="4.4287834">
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/review/templates/home.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="22" column="28" selection-start="468" selection-end="468" vertical-scroll-proportion="-13.75">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/review/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="42" column="23" selection-start="1313" selection-end="1313" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="e#0#15#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/review/tests.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="157" column="42" selection-start="5399" selection-end="5399" vertical-scroll-proportion="0.0">
+        <state line="25" column="0" selection-start="562" selection-end="562" vertical-scroll-proportion="-15.625">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/review/templates/schedule.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="14" column="9" selection-start="238" selection-end="238" vertical-scroll-proportion="0.32307693">
+        <state line="6" column="8" selection-start="115" selection-end="115" vertical-scroll-proportion="-3.75">
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/review/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="7" column="43" selection-start="213" selection-end="213" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="e#0#51#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/review/templates/base.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="18" column="26" selection-start="328" selection-end="328" vertical-scroll-proportion="-11.25">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/review/tests.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="81" column="42" selection-start="2804" selection-end="2804" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/review/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="28" column="35" selection-start="797" selection-end="797" vertical-scroll-proportion="0.6231454">
+          <folding>
+            <element signature="e#0#15#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
