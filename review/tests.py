@@ -87,5 +87,81 @@ class MainTest(TestCase):
             self.assertEqual(reviews[0], s.review)
 
 
+    def test_home_return_schedules_on_date(self):
+        """
+        Testa se a home retorna as schedules corretas de acordo com suas
+        datas.
+        """
+        review = Review()
+        review.save()
+        today = datetime.date.today()
+        before_today = today - datetime.timedelta(10)
+        after_today = today + datetime.timedelta(10)
+        for d in [today, before_today, after_today]:
+            s = Schedule()
+            s.date = d
+            s.review = review
+            s.save()
+
+        schedules = Schedule.objects.all()
+        self.assertEqual(3, len(schedules))
+        client = Client()
+        response = client.get('/')
+        self.assertContains(response, 'Schedule '+str(schedules[0].date))
+        self.assertContains(response, 'Schedule '+str(schedules[1].date))
+        self.assertNotContains(response, 'Schedule '+str(schedules[2].date))
+
+
+    def test_schedule_page(self):
+        """
+        Testa se a pagina de schedule e chamada corretamente, retornando
+        a review e as questoes relacionadas.
+        """
+        questions = [Question.objects.create(text='q%s' % n) for n in range(1, 11)]
+        review = create_review(questions)
+
+        schedule = Schedule()
+        schedule.date = datetime.date.today()
+        schedule.review = review
+        schedule.save()
+
+        client = Client()
+        response = client.get('/schedule/%s/'% schedule.id)
+        self.assertTemplateUsed(response, 'schedule.html')
+        self.assertContains(response, 'Schedule '+str(schedule.date))
+
+        def recursive(questions):
+            if len(questions) == 0:
+                return True
+            self.assertContains(response, questions[0].text)
+            return recursive(questions[1:])
+
+        recursive(questions)
+
+    def test_schedule_page_post_checked(self):
+        """
+        Testa se a checarmos uma schedule, somos redirecionados a home
+        e a schedule nao aparece mais.
+        """
+        questions = [Question.objects.create(text='q%s' % n) for n in range(1, 11)]
+        review = create_review(questions)
+
+        schedule = Schedule()
+        schedule.date = datetime.date.today()
+        schedule.review = review
+        schedule.save()
+
+        client = Client()
+        response = client.get('/')
+        self.assertContains(response, 'Schedule '+str(schedule.date))
+
+        self.assertFalse(schedule.checked)
+        response = client.post('/schedule/%s/'% schedule.id)
+        schedule = Schedule.objects.get(id=schedule.id)
+        self.assertTrue(schedule.checked)
+
+        self.assertRedirects(response, '/')
+        response = client.get('/')
+        self.assertNotContains(response, 'Schedule '+str(schedule.date))
 
 

@@ -1,5 +1,5 @@
 import datetime
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from .forms import QuestionForm
 from .models import Question, Review, Schedule
 
@@ -28,11 +28,22 @@ def application_home(request):
             questions = Question.objects.filter(review=None)
             if len(questions) == 10:
                 review = create_review(questions)
-                create_schedules(review, 5, 10, 20, 30, 40)
+                create_schedules(review, 0, 10, 20, 30, 40)
             return redirect('/')
     question_form = QuestionForm().as_p()
-    reviews = Review.objects.all()
-    return render(request, 'home.html', {'form': question_form, 'reviews': reviews},)
+    schedules = Schedule.get_current_shedules()
+    return render(request, 'home.html', {'form': question_form, 'schedules': schedules},)
+
+
+def schedule_page(request, schedule_id):
+    schedule = get_object_or_404(Schedule, id=schedule_id)
+
+    if request.method == 'POST':
+        schedule.checked = True
+        schedule.save()
+        return redirect('/')
+
+    return render(request, 'schedule.html', {'schedule':schedule,})
 
 
 

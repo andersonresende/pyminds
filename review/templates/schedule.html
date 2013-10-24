@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+</head>
+<body>
+
+
+<h1>{{schedule}}</h1> <h3>{{ schedule.review }}</h3>
+
+    <ul>
+    {% for q in schedule.review.question_set.all %}
+        <li>{{ q.text }}</li>
+    {% endfor %}
+    </ul>
+    <form method="post" action="">
+        {% csrf_token %}
+        <input type="submit" value="submeter"/>
+        </form>
+
+</body>
+</html>

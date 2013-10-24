@@ -2,27 +2,28 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7d7a51c9-e786-4cde-8666-dd47e23f7ee4" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/review/forms.py" afterPath="$PROJECT_DIR$/review/forms.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/review/templates/home.html" afterPath="$PROJECT_DIR$/review/templates/home.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/review/models.py" afterPath="$PROJECT_DIR$/review/models.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/review/tests.py" afterPath="$PROJECT_DIR$/review/tests.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/review/urls.py" afterPath="$PROJECT_DIR$/review/urls.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/review/views.py" afterPath="$PROJECT_DIR$/review/views.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="pyminds.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="/Dummy.txt" changelist="7d7a51c9-e786-4cde-8666-dd47e23f7ee4" time="1382476680529" ignored="false" />
+    <file path="/Dummy.txt" changelist="7d7a51c9-e786-4cde-8666-dd47e23f7ee4" time="1382562419042" ignored="false" />
     <file path="/manage.py" changelist="7d7a51c9-e786-4cde-8666-dd47e23f7ee4" time="1380716299374" ignored="false" />
     <file path="/wsgi.py" changelist="7d7a51c9-e786-4cde-8666-dd47e23f7ee4" time="1380716394624" ignored="false" />
     <file path="/settings.py" changelist="7d7a51c9-e786-4cde-8666-dd47e23f7ee4" time="1380716604244" ignored="false" />
     <file path="/layout.css" changelist="7d7a51c9-e786-4cde-8666-dd47e23f7ee4" time="1380766764284" ignored="false" />
-    <file path="/home.html" changelist="7d7a51c9-e786-4cde-8666-dd47e23f7ee4" time="1381584888313" ignored="false" />
-    <file path="/views.py" changelist="7d7a51c9-e786-4cde-8666-dd47e23f7ee4" time="1381706012810" ignored="false" />
+    <file path="/home.html" changelist="7d7a51c9-e786-4cde-8666-dd47e23f7ee4" time="1382571542059" ignored="false" />
+    <file path="/views.py" changelist="7d7a51c9-e786-4cde-8666-dd47e23f7ee4" time="1382574860863" ignored="false" />
     <file path="/forms.py" changelist="7d7a51c9-e786-4cde-8666-dd47e23f7ee4" time="1381577079258" ignored="false" />
-    <file path="/models.py" changelist="7d7a51c9-e786-4cde-8666-dd47e23f7ee4" time="1382477093951" ignored="false" />
-    <file path="/tests.py" changelist="7d7a51c9-e786-4cde-8666-dd47e23f7ee4" time="1381712650215" ignored="false" />
+    <file path="/models.py" changelist="7d7a51c9-e786-4cde-8666-dd47e23f7ee4" time="1382558744605" ignored="false" />
+    <file path="/tests.py" changelist="7d7a51c9-e786-4cde-8666-dd47e23f7ee4" time="1382575000293" ignored="false" />
     <file path="$PROJECT_DIR$/../superlists/lists/tests.py" changelist="7d7a51c9-e786-4cde-8666-dd47e23f7ee4" time="1381701925847" ignored="false" />
+    <file path="/urls.py" changelist="7d7a51c9-e786-4cde-8666-dd47e23f7ee4" time="1382569197211" ignored="false" />
+    <file path="/schedule.html" changelist="7d7a51c9-e786-4cde-8666-dd47e23f7ee4" time="1382575178654" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -42,10 +43,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="models.py" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="models.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/review/models.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="12" column="38" selection-start="284" selection-end="284" vertical-scroll-proportion="0.24480712">
+            <state line="12" column="38" selection-start="284" selection-end="284" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -54,10 +55,48 @@
       <file leaf-file-name="tests.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/review/tests.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="71" column="45" selection-start="2459" selection-end="2459" vertical-scroll-proportion="0.0">
+            <state line="157" column="42" selection-start="5399" selection-end="5399" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="urls.py" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/review/urls.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="8" column="7" selection-start="212" selection-end="212" vertical-scroll-proportion="0.0">
               <folding>
-                <element signature="e#183#198#0" expanded="true" />
+                <element signature="e#0#51#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="schedule.html" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/review/templates/schedule.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="14" column="9" selection-start="238" selection-end="238" vertical-scroll-proportion="0.32307693">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="views.py" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/review/views.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="42" column="23" selection-start="1313" selection-end="1313" vertical-scroll-proportion="0.0">
+              <folding>
+                <element signature="e#0#15#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="home.html" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/review/templates/home.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="22" column="28" selection-start="468" selection-end="468" vertical-scroll-proportion="-13.75">
+              <folding />
             </state>
           </provider>
         </entry>
@@ -85,10 +124,12 @@
         <option value="$PROJECT_DIR$/pyminds/settings.py" />
         <option value="$PROJECT_DIR$/review/static/layout.css" />
         <option value="$PROJECT_DIR$/review/forms.py" />
+        <option value="$PROJECT_DIR$/review/models.py" />
+        <option value="$PROJECT_DIR$/review/urls.py" />
         <option value="$PROJECT_DIR$/review/templates/home.html" />
         <option value="$PROJECT_DIR$/review/views.py" />
         <option value="$PROJECT_DIR$/review/tests.py" />
-        <option value="$PROJECT_DIR$/review/models.py" />
+        <option value="$PROJECT_DIR$/review/templates/schedule.html" />
       </list>
     </option>
   </component>
@@ -154,6 +195,24 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="pyminds" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="pyminds" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="review" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="templates" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
       <pane id="Scope" />
@@ -166,6 +225,7 @@
     <property name="options.lastSelected" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../superlists" />
     <property name="FullScreen" value="true" />
+    <property name="DefaultHtmlFileTemplate" value="Html5" />
     <property name="options.searchVisible" value="true" />
     <property name="options.splitter.details.proportions" value="0.2" />
   </component>
@@ -344,7 +404,7 @@
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.27633712" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.28606158" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
@@ -422,11 +482,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/pyminds/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/pyminds/settings.py">
       <provider selected="true" editor-type-id="text-editor">
         <state line="14" column="25" selection-start="318" selection-end="318" vertical-scroll-proportion="0.0" />
@@ -481,11 +536,6 @@
         <state line="12" column="0" selection-start="271" selection-end="271" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/review/templates/home.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="31" column="19" selection-start="685" selection-end="685" vertical-scroll-proportion="-18.625" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/pyminds/settings.py">
       <provider selected="true" editor-type-id="text-editor">
         <state line="35" column="23" selection-start="1321" selection-end="1321" vertical-scroll-proportion="0.023510972" />
@@ -496,28 +546,48 @@
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/review/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="12" column="38" selection-start="284" selection-end="284" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/review/urls.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/review/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="13" column="29" selection-start="369" selection-end="369" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/review/tests.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="71" column="45" selection-start="2459" selection-end="2459" vertical-scroll-proportion="0.0">
+        <state line="8" column="7" selection-start="212" selection-end="212" vertical-scroll-proportion="0.0">
           <folding>
-            <element signature="e#183#198#0" expanded="true" />
+            <element signature="e#0#51#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/review/models.py">
+    <entry file="file://$PROJECT_DIR$/review/templates/home.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="12" column="38" selection-start="284" selection-end="284" vertical-scroll-proportion="0.24480712">
+        <state line="22" column="28" selection-start="468" selection-end="468" vertical-scroll-proportion="-13.75">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/review/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="42" column="23" selection-start="1313" selection-end="1313" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="e#0#15#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/review/tests.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="157" column="42" selection-start="5399" selection-end="5399" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/review/templates/schedule.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="14" column="9" selection-start="238" selection-end="238" vertical-scroll-proportion="0.32307693">
           <folding />
         </state>
       </provider>

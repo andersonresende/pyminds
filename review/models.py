@@ -12,10 +12,13 @@ class Schedule(models.Model):
     date = models.DateField()
     review = models.ForeignKey(Review)
 
+    def __str__(self):
+        return 'Schedule '+str(self.date)
+
     @staticmethod
     def get_current_shedules():
         today = datetime.datetime.today()
-        schedules = Schedule.objects.filter(date__let=today, checked=False)
+        schedules = Schedule.objects.filter(date__lte=today, checked=False)
         return schedules
 
 class Question(models.Model):

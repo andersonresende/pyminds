@@ -27,8 +27,8 @@
 		<div class="line"></div>
 		<div class="right">
            <ul>
-        {% for review in reviews %}
-            <li>{{review}}</li>
+        {% for s in schedules %}
+            <li><a href="{% url 'schedule_page' s.id %}">{{s}}</a></li>
        {% endfor %}
 
 		</div>
