@@ -32,7 +32,8 @@ def application_home(request):
             return redirect('/')
     question_form = QuestionForm().as_p()
     schedules = Schedule.get_current_shedules()
-    return render(request, 'home.html', {'form': question_form, 'schedules': schedules},)
+    count_schedules = len(Schedule.objects.filter(checked=False))
+    return render(request, 'home.html', {'form': question_form, 'schedules': schedules, 'count_schedules':count_schedules},)
 
 
 def schedule_page(request, schedule_id):

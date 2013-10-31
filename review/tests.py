@@ -107,6 +107,7 @@ class MainTest(TestCase):
         self.assertEqual(3, len(schedules))
         client = Client()
         response = client.get('/')
+        self.assertContains(response, 'Schedules:'+str(len(schedules)))
         self.assertContains(response, 'Schedule '+str(schedules[0].date))
         self.assertContains(response, 'Schedule '+str(schedules[1].date))
         self.assertNotContains(response, 'Schedule '+str(schedules[2].date))

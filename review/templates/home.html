@@ -27,6 +27,7 @@
         {% endblock %}
 
         {% block content_right %}
+        Schedules:{{count_schedules}}
            <ul>
         {% for s in schedules %}
             <li><a href="{% url 'schedule_page' s.id %}">{{s}}</a></li>
