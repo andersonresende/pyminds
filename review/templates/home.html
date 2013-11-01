@@ -17,7 +17,7 @@
 	<div id="content">
 
         {% block content_left %}
-        <h3 class="title">Question</h3>
+        <h3 class="title">Question {{number_next_question}}</h3>
             <form method='POST' action=''>
          {% csrf_token %}
         {{ form }}
@@ -27,7 +27,9 @@
         {% endblock %}
 
         {% block content_right %}
-        Schedules:{{count_schedules}}
+{#        Questions: {{count_questions}}#}
+        Schedules: {{count_schedules}}
+        next {{ next_schedule.date|date:"d/m/Y"  }}
            <ul>
         {% for s in schedules %}
             <li><a href="{% url 'schedule_page' s.id %}">{{s}}</a></li>

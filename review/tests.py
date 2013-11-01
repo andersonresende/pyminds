@@ -44,15 +44,22 @@ class MainTest(TestCase):
     def test_home_post_save_questions_and_redirects_correct(self):
         """
         Testa se as questions estao sendo salvas na home e
-        esta sendo redirecionado corretamente.
+        esta sendo redirecionado corretamente alterando a quantidade
+        de questoes.
 
         """
         client = Client()
-        response = client.post('/',data={'text': 'question one'})
+        response = client.get('/')
+        count_questions = len(Question.objects.all()) + 1
+        self.assertContains(response, 'Question %s' % count_questions)
+        response = client.post('/', data={'text': 'question one'})
         questions = Question.objects.all()
         self.assertEqual(1, len(questions))
         self.assertEqual('question one', questions[0].text)
         self.assertRedirects(response, '/')
+        response = client.get('/')
+        count_questions = len(Question.objects.all()) + 1
+        self.assertContains(response, 'Question %s' % count_questions)
 
     def test_home_post_save_question_without_text_and_return_template(self):
         """
@@ -86,7 +93,6 @@ class MainTest(TestCase):
         for s in schedules:
             self.assertEqual(reviews[0], s.review)
 
-
     def test_home_return_schedules_on_date(self):
         """
         Testa se a home retorna as schedules corretas de acordo com suas
@@ -107,11 +113,45 @@ class MainTest(TestCase):
         self.assertEqual(3, len(schedules))
         client = Client()
         response = client.get('/')
-        self.assertContains(response, 'Schedules:'+str(len(schedules)))
+        self.assertContains(response, 'Schedules: '+str(len(schedules)))
         self.assertContains(response, 'Schedule '+str(schedules[0].date))
         self.assertContains(response, 'Schedule '+str(schedules[1].date))
         self.assertNotContains(response, 'Schedule '+str(schedules[2].date))
 
+    def test_home_return_schedules_on_next_date(self):
+        """
+        Testa se a home retorna proxima schedule de acordo com suas
+        datas.
+        """
+        review = Review()
+        review.save()
+        today = datetime.date.today()
+        before_today = today - datetime.timedelta(10)
+        after_today_1 = today + datetime.timedelta(10)
+        after_today_2 = today + datetime.timedelta(15)
+        after_today_3 = today + datetime.timedelta(25)
+        for d in [today, before_today, after_today_1, after_today_2, after_today_3]:
+            s = Schedule()
+            s.date = d
+            s.review = review
+            s.save()
+
+        client = Client()
+        response = client.get('/')
+        self.assertContains(response, 'next %s' % after_today_1.strftime('%d/%m/%Y'))
+        before_today = today - datetime.timedelta(5)
+        after_today_1 = today + datetime.timedelta(5)
+        after_today_2 = today + datetime.timedelta(9)
+        after_today_3 = today + datetime.timedelta(20)
+        for d in [today, before_today, after_today_1, after_today_2, after_today_3]:
+            s = Schedule()
+            s.date = d
+            s.review = review
+            s.save()
+
+        client = Client()
+        response = client.get('/')
+        self.assertContains(response, 'next %s' % after_today_1.strftime('%d/%m/%Y'))
 
     def test_schedule_page(self):
         """
