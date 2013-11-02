@@ -28,8 +28,8 @@
 
         {% block content_right %}
 {#        Questions: {{count_questions}}#}
-        Schedules: {{count_schedules}}
-        next {{ next_schedule.date|date:"d/m/Y"  }}
+        <h4>Schedules: {{count_schedules}}
+        next {{ next_schedule.date|date:"d/m/Y"  }}</h4>
            <ul>
         {% for s in schedules %}
             <li><a href="{% url 'schedule_page' s.id %}">{{s}}</a></li>
