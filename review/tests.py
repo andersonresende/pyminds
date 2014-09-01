@@ -6,8 +6,16 @@ Replace this with more appropriate tests for your application.
 """
 import datetime
 from django.test import TestCase, Client
-from .models import Question, Review, Schedule
+from .models import Question, Review, Schedule, Tag
 from .views import create_review, create_schedules
+
+
+def r_test(lst_items, method, fix_value, alt_value):
+    if not len(lst_items):
+        return
+    value = getattr(lst_items[0], alt_value)
+    method(fix_value, value)
+    r_test(lst_items[1:], method, value, alt_value)
 
 
 class FunctionsTest(TestCase):
@@ -204,5 +212,28 @@ class MainTest(TestCase):
         self.assertRedirects(response, '/')
         response = client.get('/')
         self.assertNotContains(response, 'Schedule '+str(schedule.date))
+
+
+    def test_tags_model_creation_with_questions(self):
+        """Testa a criacao de uma tag e a sua ligacao com questions."""
+        r = Review.objects.create()
+        list_questions = [Question.objects.create(text="Q%s" % n) for n in range(2)]
+
+        tag = Tag.objects.create(name="Tag1")
+        [tag.questions.add(q) for q in list_questions]
+
+        tags_list = Tag.objects.all()
+        self.assertEqual(1, len(tags_list))
+        
+        list_questions = tag.questions.all()
+        self.assertEqual(2, len(list_questions))
+        [self.assertEqual(tag.pk, q.tag_set.all()[0].pk) for q in list_questions]
+
+
+
+
+
+
+
 
 

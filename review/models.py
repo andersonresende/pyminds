@@ -37,3 +37,6 @@ class Question(models.Model):
     review = models.ForeignKey(Review, null=True,blank=True)
 
 
+class Tag(models.Model):
+    name = models.CharField(max_length=200)
+    questions = models.ManyToManyField(Question)

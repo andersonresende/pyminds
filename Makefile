@@ -1,5 +1,5 @@
 run:
-	python manage.py runserver
+	python manage.py runserver --settings pyminds.local_settings.py
 
 test:
 	python manage.py test review
