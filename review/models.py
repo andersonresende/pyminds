@@ -3,7 +3,7 @@ from django.db import models
 
 
 class Review(models.Model):
-	pass
+    pass
 
 
 class Schedule(models.Model):
