@@ -230,12 +230,32 @@ class MainTest(TestCase):
 
     def test_home_post_save_question_and_tag(self):
         client = Client()
-        response = client.post("/", data={'text': 'Question1', 'tags': 'tg1,tg2'})
+        tags = ['tg1','tg2']
+        response = client.post("/", data={'text': 'Question1', 'tags': ','.join(tags)})
         self.assertRedirects(response, '/')
         lst_questions = Question.objects.all()
         self.assertEqual(1, len(lst_questions))
         lst_tags = Tag.objects.all()
         self.assertEqual(2, len(lst_tags))
+
+    def test_home_post_save_question_and_tags_autocomplete_and_not_duplicate(self):
+        client = Client()
+        tags = ['tg1','tg2']
+        for x in range(2):
+            response = client.post("/", data={'text': 'Question1', 'tags': ','.join(tags)})
+        response = client.get("/")
+        [self.assertContains(response, t) for t in tags]
+        self.assertEqual(2, Tag.objects.all().count())
+
+
+
+
+
+
+
+
+
+
 
 
 

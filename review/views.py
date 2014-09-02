@@ -28,30 +28,28 @@ def create_all():
 
 #talvez todos esses metodos acima deveriam estar no save de um objeto review
 
-
 def application_home(request):
     if request.method == 'POST':
-        import pdb
-        pdb.set_trace()
         question_form = QuestionForm(request.POST)
         if question_form.is_valid():
             question_form.save()
             create_all()
             return redirect('/')
+
     question_form = QuestionForm().as_p()
     schedules = Schedule.get_current_shedules()
-
     next_schedule = Schedule.get_next_schedule()
-
     count_schedules = Schedule.objects.filter(checked=False).count()
     number_next_question = Question.objects.all().count() + 1
-
+    tags_name = [str(t['name']) for t in Tag.objects.all().values('name')]
+    tags = ','.join(tags_name)
     return render(request, 'home.html', {
         'form': question_form,
         'schedules': schedules,
         'count_schedules': count_schedules,
         'next_schedule': next_schedule,
         'number_next_question': number_next_question,
+        'tags': tags,
     },)
 
 

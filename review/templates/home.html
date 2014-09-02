@@ -3,7 +3,8 @@
         {% block extra_head%}
             <script type="text/javascript">
                 $(document).ready(function() {
-                    var sampleTags = {{tags}}
+                    var sampleTags = document.getElementById("myVar").value.split(',');
+                    sampleTags
                     $('#id_tags').tagit({
                         availableTags: sampleTags
                     });
@@ -20,10 +21,12 @@
         {{ form }}
          <input type="submit" id="btSubmit" value="Raise">
                 </form>
+
+
+        <input type="hidden" id="myVar" name="variable" value="{{tags}}">
         {% endblock %}
 
         {% block content_right %}
-{#        Questions: {{count_questions}}#}
         <h4>Schedules: {{count_schedules}}
         next {{ next_schedule.date|date:"d/m/Y"  }}</h4>
            <ul>
