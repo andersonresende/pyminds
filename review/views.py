@@ -1,7 +1,7 @@
 import datetime
 from django.shortcuts import render, redirect, get_object_or_404
 from .forms import QuestionForm
-from .models import Question, Review, Schedule
+from .models import Question, Review, Schedule, Tag
 
 
 def create_schedules(review, *args):
@@ -20,23 +20,29 @@ def create_review(questions):
     return review
 
 
+def create_all():
+    questions = Question.objects.filter(review=None)
+    if questions.count() == 5:
+        review = create_review(questions)
+        create_schedules(review, 5, 10, 20, 30, 40)
+
+#talvez todos esses metodos acima deveriam estar no save de um objeto review
+
+
 def application_home(request):
     if request.method == 'POST':
         question_form = QuestionForm(request.POST)
         if question_form.is_valid():
             question_form.save()
-            questions = Question.objects.filter(review=None)
-            if len(questions) == 5:
-                review = create_review(questions)
-                create_schedules(review, 5, 10, 20, 30, 40)
+            create_all()
             return redirect('/')
     question_form = QuestionForm().as_p()
     schedules = Schedule.get_current_shedules()
 
     next_schedule = Schedule.get_next_schedule()
 
-    count_schedules = len(Schedule.objects.filter(checked=False))
-    number_next_question = len(Question.objects.all()) + 1
+    count_schedules = Schedule.objects.filter(checked=False).count()
+    number_next_question = Question.objects.all().count() + 1
     return render(request, 'home.html', {
         'form': question_form,
         'schedules': schedules,

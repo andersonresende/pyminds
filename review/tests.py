@@ -213,7 +213,6 @@ class MainTest(TestCase):
         response = client.get('/')
         self.assertNotContains(response, 'Schedule '+str(schedule.date))
 
-
     def test_tags_model_creation_with_questions(self):
         """Testa a criacao de uma tag e a sua ligacao com questions."""
         r = Review.objects.create()
@@ -228,6 +227,20 @@ class MainTest(TestCase):
         list_questions = tag.questions.all()
         self.assertEqual(2, len(list_questions))
         [self.assertEqual(tag.pk, q.tag_set.all()[0].pk) for q in list_questions]
+
+    def test_home_post_save_question_and_tag(self):
+        client = Client()
+        response = client.post("/", data={'text': 'Question1', 'tags': 'tg1,tg2'})
+        self.assertRedirects(response, '/')
+        lst_questions = Question.objects.all()
+        self.assertEqual(1, len(lst_questions))
+        lst_tags = Tag.objects.all()
+        self.assertEqual(2, len(lst_tags))
+
+
+
+
+
 
 
 
