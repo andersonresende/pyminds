@@ -2,7 +2,16 @@
 <html lang="pt-br">
 <head>
 	<meta charset="UTF-8">
-	 <link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}layout.css"/>
+	<link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}css/layout.css"/>
+	<link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}css/jquery.tagit.css"/>
+	<link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}css/tagit.ui-zendesk.css"/>
+	
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.12/jquery-ui.min.js" type="text/javascript" charset="utf-8"></script>
+	<script src="{{STATIC_URL}}js/tag-it.js" type="text/javascript" charset="utf-8"></script>
+
+	{% block extra_head%}{% endblock %}
+
 	<title></title>
 
 </head>

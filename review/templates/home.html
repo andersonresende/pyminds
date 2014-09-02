@@ -1,20 +1,17 @@
 {% extends 'base.html' %}
 
-<html lang="pt-br">
-<head>
-	<meta charset="UTF-8">
-	 <link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}layout.css"/>
-	<title></title>
+        {% block extra_head%}
+            <script type="text/javascript">
+                $(document).ready(function() {
+                    var sampleTags = {{tags}}
+                    $('#id_tags').tagit({
+                        availableTags: sampleTags
+                    });
+                });
+            </script>
 
-</head>
-<body>
-    <div id="top"></div>
-	<header>
+        {% endblock %}
 
-        <h1><a href="{% url 'home' %}">PyMinds     </a></h1>
-
-	</header>
-	<div id="content">
 
         {% block content_left %}
         <h3 class="title">Question {{number_next_question}}</h3>
@@ -23,7 +20,6 @@
         {{ form }}
          <input type="submit" id="btSubmit" value="Raise">
                 </form>
-
         {% endblock %}
 
         {% block content_right %}
@@ -36,8 +32,3 @@
        {% endfor %}
             </ul>
 		{% endblock %}
-    </div>
-<!-- <footer> <ul>
-             </ul></footer> -->
-</body>
-</html>

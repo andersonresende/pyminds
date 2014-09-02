@@ -31,6 +31,8 @@ def create_all():
 
 def application_home(request):
     if request.method == 'POST':
+        import pdb
+        pdb.set_trace()
         question_form = QuestionForm(request.POST)
         if question_form.is_valid():
             question_form.save()
@@ -43,12 +45,13 @@ def application_home(request):
 
     count_schedules = Schedule.objects.filter(checked=False).count()
     number_next_question = Question.objects.all().count() + 1
+
     return render(request, 'home.html', {
         'form': question_form,
         'schedules': schedules,
         'count_schedules': count_schedules,
         'next_schedule': next_schedule,
-        'number_next_question': number_next_question
+        'number_next_question': number_next_question,
     },)
 
 
