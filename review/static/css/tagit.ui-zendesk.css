@@ -8,7 +8,7 @@ ul.tagit {
     border-color: #C6C6C6;
     background: inherit;
     width: 392px;
-    font-size: 13px;
+    font-size: 14px;
 }
 ul.tagit li.tagit-choice {
     -moz-border-radius: 6px;
@@ -50,7 +50,7 @@ ul.tagit li.tagit-choice a.tagit-close .text-icon:hover {
 ul.tagit input[type="text"] {
     color: #333333;
     background: none;
-    font-size: 13px;
+    font-size: 14px;
 }
 .ui-widget {
     font-size: 1.1em;
@@ -65,7 +65,7 @@ ul.tagit input[type="text"] {
     margin: 0;
     display:block;
     float: left;
-    font-size: 13px;
+    font-size: 14px;
 }
 .tagit-autocomplete.ui-menu .ui-menu {
     margin-top: -3px;
