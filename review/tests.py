@@ -218,7 +218,7 @@ class MainTest(TestCase):
         r = Review.objects.create()
         list_questions = [Question.objects.create(text="Q%s" % n) for n in range(2)]
 
-        tag = Tag.objects.create(name="Tag1")
+        tag = Tag.objects.create(name="tag1")
         [tag.questions.add(q) for q in list_questions]
 
         tags_list = Tag.objects.all()
@@ -230,7 +230,7 @@ class MainTest(TestCase):
 
     def test_home_post_save_question_and_tag(self):
         client = Client()
-        tags = ['tg1','tg2']
+        tags = ['tg1', 'tg2']
         response = client.post("/", data={'text': 'Question1', 'tags': ','.join(tags)})
         self.assertRedirects(response, '/')
         lst_questions = Question.objects.all()
@@ -240,15 +240,19 @@ class MainTest(TestCase):
 
     def test_home_post_save_question_and_tags_autocomplete_and_not_duplicate(self):
         client = Client()
-        tags = ['tg1','tg2']
+        tags = ['tg1', 'tg2']
         for x in range(2):
             response = client.post("/", data={'text': 'Question1', 'tags': ','.join(tags)})
         response = client.get("/")
         [self.assertContains(response, t) for t in tags]
         self.assertEqual(2, Tag.objects.all().count())
 
-
-
+    def test_post_save_tags_lowercase(self):
+        client = Client()
+        tags = ['TG1', 'tg2']
+        response = client.post("/", data={'text': 'Question1', 'tags': ','.join(tags)})
+        lst_tags = Tag.objects.all()
+        [self.assertEqual(t.name, t.name.lower()) for t in lst_tags]
 
 
 
