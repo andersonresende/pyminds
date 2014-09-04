@@ -3,7 +3,9 @@ from django.db import models
 
 
 class Review(models.Model):
-    pass
+
+    def __str__(self):
+        return 'Review %s' % self.pk
 
 
 class Schedule(models.Model):

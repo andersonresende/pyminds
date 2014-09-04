@@ -7,7 +7,7 @@ Replace this with more appropriate tests for your application.
 import datetime
 from django.test import TestCase, Client
 from .models import Question, Review, Schedule, Tag
-from .views import create_review, create_schedules
+from .views import *
 
 
 def r_test(lst_items, method, fix_value, alt_value):
@@ -178,6 +178,7 @@ class MainTest(TestCase):
         response = client.get('/schedule/%s/'% schedule.id)
         self.assertTemplateUsed(response, 'schedule.html')
         self.assertContains(response, 'Schedule '+str(schedule.date))
+        self.assertContains(response, 'Review '+str(review.pk))
 
         def recursive(questions):
             if len(questions) == 0:
@@ -212,6 +213,7 @@ class MainTest(TestCase):
         self.assertRedirects(response, '/')
         response = client.get('/')
         self.assertNotContains(response, 'Schedule '+str(schedule.date))
+
 
     def test_tags_model_creation_with_questions(self):
         """Testa a criacao de uma tag e a sua ligacao com questions."""
@@ -254,23 +256,18 @@ class MainTest(TestCase):
         lst_tags = Tag.objects.all()
         [self.assertEqual(t.name, t.name.lower()) for t in lst_tags]
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    def test_get_schedule_page_show_questions_and_tags(self):
+        questions = [Question.objects.create(text='q%s' % n) for n in range(1, 6)]
+        lst_tags = ['tg1','tg2']
+        lst_tags = [Tag.objects.create(name=t) for t in lst_tags]
+        tag1, tag2 = lst_tags
+        [tag1.questions.add(q) for q in questions[:2]]
+        [tag2.questions.add(q) for q in questions[2:]]
+        create_all()
+        schedules = Schedule.objects.all()
+        client = Client()
+        response = client.get('/schedule/%s/'% schedules[0].id)
+        self.assertTemplateUsed(response, 'schedule.html')
+        self.assertContains(response, 'Schedule '+str(schedules[0].date))
+        self.assertContains(response, tag1.name)
+        self.assertContains(response, tag2.name)
