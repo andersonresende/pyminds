@@ -7,6 +7,9 @@ class Review(models.Model):
 
 
 class Schedule(models.Model):
+    class Meta:
+        ordering = ['date']
+
     checked = models.BooleanField(default=False)
     rate = models.IntegerField(null=True, blank=True)
     date = models.DateField()
@@ -24,7 +27,7 @@ class Schedule(models.Model):
     @staticmethod
     def get_next_schedule():
         today = datetime.datetime.today()
-        schedules = Schedule.objects.filter(checked=False).exclude(date__lte=today).order_by('date')
+        schedules = Schedule.objects.filter(checked=False).exclude(date__lte=today)
         if schedules:
             return schedules[0]
         else:

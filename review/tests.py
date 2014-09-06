@@ -1,3 +1,4 @@
+# -*- coding:utf-8 -*-
 """
 This file demonstrates writing tests using the unittest module. These will pass
 when you run "manage.py test".
@@ -17,6 +18,9 @@ def r_test(lst_items, method, fix_value, alt_value):
     method(fix_value, value)
     r_test(lst_items[1:], method, value, alt_value)
 
+c_schedule = lambda x: Schedule.objects.create(**x)
+calc_date_before = lambda x: datetime.date.today() - datetime.timedelta(x)
+calc_date_after = lambda x: datetime.date.today() + datetime.timedelta(x)
 
 class FunctionsTest(TestCase):
 
@@ -133,33 +137,14 @@ class MainTest(TestCase):
         """
         review = Review()
         review.save()
-        today = datetime.date.today()
-        before_today = today - datetime.timedelta(10)
-        after_today_1 = today + datetime.timedelta(10)
-        after_today_2 = today + datetime.timedelta(15)
-        after_today_3 = today + datetime.timedelta(25)
-        for d in [today, before_today, after_today_1, after_today_2, after_today_3]:
-            s = Schedule()
-            s.date = d
-            s.review = review
-            s.save()
 
-        client = Client()
-        response = client.get('/')
-        self.assertContains(response, 'next %s' % after_today_1.strftime('%d/%m/%Y'))
-        before_today = today - datetime.timedelta(5)
-        after_today_1 = today + datetime.timedelta(5)
-        after_today_2 = today + datetime.timedelta(9)
-        after_today_3 = today + datetime.timedelta(20)
-        for d in [today, before_today, after_today_1, after_today_2, after_today_3]:
-            s = Schedule()
-            s.date = d
-            s.review = review
-            s.save()
+        lst_dates = [[0, 10, 10, 15, 25], [0, 5, 5, 9, 10]]
+        for lst in lst_dates:
+            lst_schedules = [c_schedule({'date': d, 'review': review}) for d in map(calc_date_after, lst)]
+            client = Client()
+            response = client.get('/')
+            self.assertContains(response, 'next %s' % lst_schedules[1].date.strftime('%d/%m/%Y'))
 
-        client = Client()
-        response = client.get('/')
-        self.assertContains(response, 'next %s' % after_today_1.strftime('%d/%m/%Y'))
 
     def test_schedule_page(self):
         """
@@ -254,16 +239,21 @@ class MainTest(TestCase):
         lst_tags = Tag.objects.all()
         [self.assertEqual(t.name, t.name.lower()) for t in lst_tags]
 
+    def test_home_schedules_ordered(self):
+        review = Review()
+        review.save()
+        lst_schedules_older = [c_schedule({'date': d, 'review': review}) for d in map(calc_date_before, [0, 10, 15, 25])]
+        lst_schedules = Schedule.get_current_shedules()
+        cont = 3
+        for sh in lst_schedules:
+            self.assertEqual(sh.date, lst_schedules_older[cont].date)
+            cont -= 1
 
 
-
-
-
-
-
-
-
-
+# Map não é possivel chamar funções passando os argumentos diretamente.
+# Map não é possivel passar mais de um argumento na função.
+# no entanto se vc for usar funcoes, precisando apenas de um map e um compression,
+# o map tem uma sintaxe mais interessante.
 
 
 
