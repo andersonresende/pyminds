@@ -2,9 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7d7a51c9-e786-4cde-8666-dd47e23f7ee4" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pyminds/local_settings.py" afterPath="$PROJECT_DIR$/pyminds/local_settings.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/review/models.py" afterPath="$PROJECT_DIR$/review/models.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/review/static/css/tagit.ui-zendesk.css" afterPath="$PROJECT_DIR$/review/static/css/tagit.ui-zendesk.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/review/templates/schedule.html" afterPath="$PROJECT_DIR$/review/templates/schedule.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pyminds/settings.py" afterPath="$PROJECT_DIR$/pyminds/settings.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/review/tests.py" afterPath="$PROJECT_DIR$/review/tests.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/review/views.py" afterPath="$PROJECT_DIR$/review/views.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="pyminds.iws" />
@@ -31,7 +34,7 @@
       <file leaf-file-name="models.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/review/models.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="17" column="22" selection-start="356" selection-end="356" vertical-scroll-proportion="0.0" vertical-offset="14" max-vertical-offset="735">
+            <state line="19" column="22" selection-start="408" selection-end="408" vertical-scroll-proportion="0.0" vertical-offset="44" max-vertical-offset="765">
               <folding />
             </state>
           </provider>
@@ -40,7 +43,7 @@
       <file leaf-file-name="tests.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/review/tests.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="12" column="0" selection-start="367" selection-end="367" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="4035">
+            <state line="260" column="25" selection-start="9794" selection-end="9794" vertical-scroll-proportion="0.0" vertical-offset="3537" max-vertical-offset="4200">
               <folding />
             </state>
           </provider>
@@ -64,10 +67,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="local_settings.py" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="local_settings.py" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/pyminds/local_settings.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="8" column="8" selection-start="350" selection-end="350" vertical-scroll-proportion="0.0" vertical-offset="120" max-vertical-offset="285">
+            <state line="9" column="33" selection-start="402" selection-end="402" vertical-scroll-proportion="0.20361991" vertical-offset="0" max-vertical-offset="663">
               <folding />
             </state>
           </provider>
@@ -82,10 +85,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="tagit.ui-zendesk.css" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="tagit.ui-zendesk.css" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/review/static/css/tagit.ui-zendesk.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="18" column="30" selection-start="428" selection-end="428" vertical-scroll-proportion="0.40723982" vertical-offset="0" max-vertical-offset="1680">
+            <state line="18" column="30" selection-start="428" selection-end="428" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1680">
               <folding />
             </state>
           </provider>
@@ -144,12 +147,12 @@
         <option value="$PROJECT_DIR$/pyminds/settings.py" />
         <option value="$PROJECT_DIR$/manage.py" />
         <option value="$PROJECT_DIR$/review/views.py" />
-        <option value="$PROJECT_DIR$/pyminds/local_settings.py" />
         <option value="$PROJECT_DIR$/review/templates/home.html" />
         <option value="$PROJECT_DIR$/review/forms.py" />
         <option value="$PROJECT_DIR$/review/models.py" />
-        <option value="$PROJECT_DIR$/review/tests.py" />
         <option value="$PROJECT_DIR$/review/static/css/tagit.ui-zendesk.css" />
+        <option value="$PROJECT_DIR$/review/tests.py" />
+        <option value="$PROJECT_DIR$/pyminds/local_settings.py" />
       </list>
     </option>
   </component>
@@ -523,13 +526,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pyminds/local_settings.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="8" column="8" selection-start="350" selection-end="350" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="285">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/review/static/css/jquery.tagit.css">
       <provider selected="true" editor-type-id="text-editor">
         <state line="47" column="0" selection-start="972" selection-end="972" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1125">
@@ -560,21 +556,28 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/review/models.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="17" column="22" selection-start="356" selection-end="356" vertical-scroll-proportion="0.0" vertical-offset="14" max-vertical-offset="735">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/review/tests.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="12" column="0" selection-start="367" selection-end="367" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="4035">
+        <state line="19" column="22" selection-start="408" selection-end="408" vertical-scroll-proportion="0.0" vertical-offset="44" max-vertical-offset="765">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/review/static/css/tagit.ui-zendesk.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="18" column="30" selection-start="428" selection-end="428" vertical-scroll-proportion="0.40723982" vertical-offset="0" max-vertical-offset="1680">
+        <state line="18" column="30" selection-start="428" selection-end="428" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1680">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/review/tests.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="260" column="25" selection-start="9794" selection-end="9794" vertical-scroll-proportion="0.0" vertical-offset="3537" max-vertical-offset="4200">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pyminds/local_settings.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="9" column="33" selection-start="402" selection-end="402" vertical-scroll-proportion="0.20361991" vertical-offset="0" max-vertical-offset="663">
           <folding />
         </state>
       </provider>

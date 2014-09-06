@@ -24,7 +24,7 @@ def create_all():
     questions = Question.objects.filter(review=None)
     if questions.count() == 5:
         review = create_review(questions)
-        create_schedules(review, 5, 10, 20, 30, 40)
+        create_schedules(review, 5, 15, 35, 60, 90)
 
 #talvez todos esses metodos acima deveriam estar no save de um objeto review
 
