@@ -16,9 +16,9 @@ ul.tagit li.tagit-choice {
     -moz-border-radius: 6px;
     border-radius: 6px;
     -webkit-border-radius: 6px;
-    border: 1px solid #6d95e0;
+    border: 1px solid #cad8f3;
     background: none;
-    background-color: white;
+    background-color: #dee7f8;
     font-style: italic;
     font-weight: normal;
 
@@ -102,5 +102,3 @@ ul.tagit input[type="text"] {
 
 .tagit-autocomplete .ui-widget-content { border: 1px solid #aaaaaa; }
 .tagit .ui-helper-hidden-accessible { position: absolute !important; clip: rect(1px,1px,1px,1px); }
-
-

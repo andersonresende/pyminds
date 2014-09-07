@@ -126,9 +126,9 @@ class MainTest(TestCase):
         client = Client()
         response = client.get('/')
         self.assertContains(response, 'Schedules: '+str(len(schedules)))
-        self.assertContains(response, 'Schedule '+str(schedules[0].date))
-        self.assertContains(response, 'Schedule '+str(schedules[1].date))
-        self.assertNotContains(response, 'Schedule '+str(schedules[2].date))
+        self.assertContains(response, schedules[0])
+        self.assertContains(response, schedules[1])
+        self.assertNotContains(response, schedules[2])
 
     def test_home_return_schedules_on_next_date(self):
         """
@@ -162,7 +162,7 @@ class MainTest(TestCase):
         client = Client()
         response = client.get('/schedule/%s/'% schedule.id)
         self.assertTemplateUsed(response, 'schedule.html')
-        self.assertContains(response, 'Schedule '+str(schedule.date))
+        self.assertContains(response, schedule)
         self.assertContains(response, 'Review '+str(review.pk))
 
         def recursive(questions):
@@ -188,7 +188,7 @@ class MainTest(TestCase):
 
         client = Client()
         response = client.get('/')
-        self.assertContains(response, 'Schedule '+str(schedule.date))
+        self.assertContains(response, schedule)
 
         self.assertFalse(schedule.checked)
         response = client.post('/schedule/%s/'% schedule.id)
@@ -197,7 +197,7 @@ class MainTest(TestCase):
 
         self.assertRedirects(response, '/')
         response = client.get('/')
-        self.assertNotContains(response, 'Schedule '+str(schedule.date))
+        self.assertNotContains(response, schedule)
 
 
     def test_tags_model_creation_with_questions(self):
@@ -253,7 +253,7 @@ class MainTest(TestCase):
         client = Client()
         response = client.get('/schedule/%s/'% schedules[0].id)
         self.assertTemplateUsed(response, 'schedule.html')
-        self.assertContains(response, 'Schedule '+str(schedules[0].date))
+        self.assertContains(response, schedules[0])
         self.assertContains(response, tag1.name)
         self.assertContains(response, tag2.name)
 
@@ -266,6 +266,16 @@ class MainTest(TestCase):
         for sh in lst_schedules:
             self.assertEqual(sh.date, lst_schedules_older[cont].date)
             cont -= 1
+
+    def test_tags_ordered_by_name(self):
+        tags_name = ['tg3', 'tg1', 'tg2', 'tg5', 'tg4']
+        lst_tags = [Tag.objects.create(name=t) for t in tags_name]
+        q_tags = Tag.objects.all()
+        self.assertEqual(tags_name[1], q_tags[0].name)
+        self.assertEqual(tags_name[2], q_tags[1].name)
+        self.assertEqual(tags_name[0], q_tags[2].name)
+        self.assertEqual(tags_name[4], q_tags[3].name)
+        self.assertEqual(tags_name[3], q_tags[4].name)
 
 
 # Map não é possivel chamar funções passando os argumentos diretamente.

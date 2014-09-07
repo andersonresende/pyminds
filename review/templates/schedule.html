@@ -1,17 +1,21 @@
 {% extends 'base.html' %}
 
-
 {% block content_left %}
-<h1>{{schedule}}</h1> <h3>{{ schedule.review }}</h3>
-    <ul>
+<h1 class="title">{{schedule}}</h1>
+<h3 class="subtitle">{{ schedule.review }}</h3>
+    <ul class="schedule-ul">
     {% for q in schedule.review.question_set.all %}
-        <li>{{ q.text }}</li>
-        <li>{% for tag in q.tag_set.all %} {{tag.name}}, {% endfor %}</li> 
+        <li>
+            {{ q.text }}
+            {% for tag in q.tag_set.all %}
+                <span class="mytags">{{tag.name}}</span>
+            {% endfor %}
+        </li>
     {% endfor %}
     </ul>
-    <form method="post" action="">
+    <form class="schedule-form" method="post" action="">
         {% csrf_token %}
-        <input type="submit" value="submeter"/>
+        <input id="btSubmit" type="submit" value="submeter"/>
         </form>
 
 {% endblock %}

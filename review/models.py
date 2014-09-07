@@ -18,7 +18,7 @@ class Schedule(models.Model):
     review = models.ForeignKey(Review)
 
     def __str__(self):
-        return 'Schedule '+str(self.date)
+        return 'Schedule %s' % self.date.strftime("%d/%m/%Y")
 
     @staticmethod
     def get_current_shedules():
@@ -43,5 +43,8 @@ class Question(models.Model):
 
 
 class Tag(models.Model):
+
+    class Meta:
+        ordering = ['name']
     name = models.CharField(max_length=200)
     questions = models.ManyToManyField(Question)

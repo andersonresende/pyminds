@@ -2,12 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7d7a51c9-e786-4cde-8666-dd47e23f7ee4" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pyminds/local_settings.py" afterPath="$PROJECT_DIR$/pyminds/local_settings.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/review/templates/home.html" afterPath="$PROJECT_DIR$/review/templates/home.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/review/static/css/layout.css" afterPath="$PROJECT_DIR$/review/static/css/layout.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/review/models.py" afterPath="$PROJECT_DIR$/review/models.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/review/templates/schedule.html" afterPath="$PROJECT_DIR$/review/templates/schedule.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pyminds/settings.py" afterPath="$PROJECT_DIR$/pyminds/settings.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/review/static/css/tagit.ui-zendesk.css" afterPath="$PROJECT_DIR$/review/static/css/tagit.ui-zendesk.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/review/tests.py" afterPath="$PROJECT_DIR$/review/tests.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/review/views.py" afterPath="$PROJECT_DIR$/review/views.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="pyminds.iws" />
@@ -34,16 +34,16 @@
       <file leaf-file-name="models.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/review/models.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="19" column="22" selection-start="408" selection-end="408" vertical-scroll-proportion="0.0" vertical-offset="44" max-vertical-offset="765">
+            <state line="47" column="17" selection-start="1213" selection-end="1213" vertical-scroll-proportion="0.0" vertical-offset="89" max-vertical-offset="810">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="tests.py" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="tests.py" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/review/tests.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="260" column="25" selection-start="9794" selection-end="9794" vertical-scroll-proportion="0.0" vertical-offset="3537" max-vertical-offset="4200">
+            <state line="279" column="0" selection-start="10459" selection-end="10459" vertical-scroll-proportion="0.7058824" vertical-offset="3672" max-vertical-offset="4350">
               <folding />
             </state>
           </provider>
@@ -52,34 +52,34 @@
       <file leaf-file-name="home.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/review/templates/home.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="14" column="77" selection-start="464" selection-end="464" vertical-scroll-proportion="0.0" vertical-offset="210" max-vertical-offset="705">
+            <state line="25" column="0" selection-start="775" selection-end="775" vertical-scroll-proportion="-15.625" vertical-offset="0" max-vertical-offset="645">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="settings.py" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/pyminds/settings.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="17" column="23" selection-start="491" selection-end="491" vertical-scroll-proportion="0.0" vertical-offset="255" max-vertical-offset="2925">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="local_settings.py" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="local_settings.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/pyminds/local_settings.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="9" column="33" selection-start="402" selection-end="402" vertical-scroll-proportion="0.20361991" vertical-offset="0" max-vertical-offset="663">
+            <state line="9" column="33" selection-start="402" selection-end="402" vertical-scroll-proportion="0.0" vertical-offset="135" max-vertical-offset="285">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="jquery.tagit.css" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/review/static/css/jquery.tagit.css">
+      <file leaf-file-name="schedule.html" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/review/templates/schedule.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="47" column="0" selection-start="972" selection-end="972" vertical-scroll-proportion="0.0" vertical-offset="705" max-vertical-offset="1125">
+            <state line="3" column="35" selection-start="87" selection-end="87" vertical-scroll-proportion="-1.875" vertical-offset="0" max-vertical-offset="405">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="layout.css" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/review/static/css/layout.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="119" column="19" selection-start="2957" selection-end="2957" vertical-scroll-proportion="0.0" vertical-offset="1272" max-vertical-offset="1935">
               <folding />
             </state>
           </provider>
@@ -88,7 +88,7 @@
       <file leaf-file-name="tagit.ui-zendesk.css" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/review/static/css/tagit.ui-zendesk.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="18" column="30" selection-start="428" selection-end="428" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1680">
+            <state line="18" column="23" selection-start="421" selection-end="421" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1635">
               <folding />
             </state>
           </provider>
@@ -106,7 +106,7 @@
       <file leaf-file-name="views.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/review/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="39" column="47" selection-start="1129" selection-end="1129" vertical-scroll-proportion="0.0" vertical-offset="329" max-vertical-offset="1110">
+            <state line="59" column="31" selection-start="1856" selection-end="1856" vertical-scroll-proportion="0.0" vertical-offset="434" max-vertical-offset="1110">
               <folding />
             </state>
           </provider>
@@ -115,7 +115,7 @@
       <file leaf-file-name="forms.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/review/forms.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="6" column="58" selection-start="178" selection-end="178" vertical-scroll-proportion="0.0" vertical-offset="90" max-vertical-offset="450">
+            <state line="6" column="58" selection-start="178" selection-end="178" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="435">
               <folding />
             </state>
           </provider>
@@ -141,18 +141,19 @@
       <list>
         <option value="$PROJECT_DIR$/pyminds/wsgi.py" />
         <option value="$PROJECT_DIR$/review/urls.py" />
-        <option value="$PROJECT_DIR$/review/templates/schedule.html" />
         <option value="$PROJECT_DIR$/review/static/layout.css" />
         <option value="$PROJECT_DIR$/review/templates/base.html" />
         <option value="$PROJECT_DIR$/pyminds/settings.py" />
         <option value="$PROJECT_DIR$/manage.py" />
         <option value="$PROJECT_DIR$/review/views.py" />
-        <option value="$PROJECT_DIR$/review/templates/home.html" />
         <option value="$PROJECT_DIR$/review/forms.py" />
-        <option value="$PROJECT_DIR$/review/models.py" />
-        <option value="$PROJECT_DIR$/review/static/css/tagit.ui-zendesk.css" />
-        <option value="$PROJECT_DIR$/review/tests.py" />
         <option value="$PROJECT_DIR$/pyminds/local_settings.py" />
+        <option value="$PROJECT_DIR$/review/static/css/tagit.ui-zendesk.css" />
+        <option value="$PROJECT_DIR$/review/templates/schedule.html" />
+        <option value="$PROJECT_DIR$/review/static/css/layout.css" />
+        <option value="$PROJECT_DIR$/review/templates/home.html" />
+        <option value="$PROJECT_DIR$/review/models.py" />
+        <option value="$PROJECT_DIR$/review/tests.py" />
       </list>
     </option>
   </component>
@@ -215,6 +216,64 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="review" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="pyminds" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="pyminds" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="review" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="templates" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="pyminds" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="pyminds" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="review" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="static" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="pyminds" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="pyminds" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="review" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="static" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="css" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -482,11 +541,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/pyminds/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="0" />
-      </provider>
-    </entry>
     <entry file="jar://$APPLICATION_HOME_DIR$/lib/pycharm.jar!/resources/html5-schema/block.rnc">
       <provider selected="true" editor-type-id="text-editor">
         <state line="199" column="10" selection-start="3748" selection-end="3754" vertical-scroll-proportion="4.4287834" vertical-offset="0" max-vertical-offset="0" />
@@ -495,11 +549,6 @@
     <entry file="file://$PROJECT_DIR$/review/urls.py">
       <provider selected="true" editor-type-id="text-editor">
         <state line="7" column="43" selection-start="213" selection-end="213" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/review/templates/schedule.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="8" selection-start="115" selection-end="115" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/.gitignore">
@@ -514,7 +563,17 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/pyminds/settings.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="17" column="23" selection-start="491" selection-end="491" vertical-scroll-proportion="0.0" vertical-offset="2097" max-vertical-offset="2925">
+        <state line="17" column="23" selection-start="491" selection-end="491" vertical-scroll-proportion="0.0" vertical-offset="2097" max-vertical-offset="2925" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/review/static/css/jquery.tagit.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="47" column="0" selection-start="972" selection-end="972" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1125" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pyminds/local_settings.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="9" column="33" selection-start="402" selection-end="402" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="285">
           <folding />
         </state>
       </provider>
@@ -526,16 +585,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/review/static/css/jquery.tagit.css">
+    <entry file="file://$PROJECT_DIR$/review/static/css/tagit.ui-zendesk.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="47" column="0" selection-start="972" selection-end="972" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1125">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/review/templates/home.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="14" column="77" selection-start="464" selection-end="464" vertical-scroll-proportion="0.0" vertical-offset="210" max-vertical-offset="705">
+        <state line="18" column="23" selection-start="421" selection-end="421" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1635">
           <folding />
         </state>
       </provider>
@@ -549,35 +601,42 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/review/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="39" column="47" selection-start="1129" selection-end="1129" vertical-scroll-proportion="0.0" vertical-offset="329" max-vertical-offset="1110">
+        <state line="59" column="31" selection-start="1856" selection-end="1856" vertical-scroll-proportion="0.0" vertical-offset="434" max-vertical-offset="1110">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/review/static/css/layout.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="119" column="19" selection-start="2957" selection-end="2957" vertical-scroll-proportion="0.0" vertical-offset="1272" max-vertical-offset="1935">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/review/templates/home.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="25" column="0" selection-start="775" selection-end="775" vertical-scroll-proportion="-15.625" vertical-offset="0" max-vertical-offset="645">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/review/templates/schedule.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="3" column="35" selection-start="87" selection-end="87" vertical-scroll-proportion="-1.875" vertical-offset="0" max-vertical-offset="405">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/review/models.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="19" column="22" selection-start="408" selection-end="408" vertical-scroll-proportion="0.0" vertical-offset="44" max-vertical-offset="765">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/review/static/css/tagit.ui-zendesk.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="18" column="30" selection-start="428" selection-end="428" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1680">
+        <state line="47" column="17" selection-start="1213" selection-end="1213" vertical-scroll-proportion="0.0" vertical-offset="89" max-vertical-offset="810">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/review/tests.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="260" column="25" selection-start="9794" selection-end="9794" vertical-scroll-proportion="0.0" vertical-offset="3537" max-vertical-offset="4200">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pyminds/local_settings.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="9" column="33" selection-start="402" selection-end="402" vertical-scroll-proportion="0.20361991" vertical-offset="0" max-vertical-offset="663">
+        <state line="279" column="0" selection-start="10459" selection-end="10459" vertical-scroll-proportion="0.7058824" vertical-offset="3672" max-vertical-offset="4350">
           <folding />
         </state>
       </provider>

@@ -3,11 +3,7 @@
         {% block extra_head%}
             <script type="text/javascript">
                 $(document).ready(function() {
-
-
-
                     var sampleTags = document.getElementById("myVar").value.split(',');
-                    sampleTags
                     $('#id_tags').tagit({
                         availableTags: sampleTags
                     });
