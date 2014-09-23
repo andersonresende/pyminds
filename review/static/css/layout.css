@@ -71,24 +71,40 @@ header a {
 }
 #content .right ul {
     list-style-type: none;
-    padding-left: 7px;
+    padding-left: 0px;
     color: #2D2D2D;
+    margin-left:30px;
 }
+
 #content .right ul li {
-    margin-bottom: 5px;
-    /*margin-top: 7px;*/
-    border-bottom: 0.5px solid dodgerblue;
+    display: inline-block;
+    vertical-align: top;
+    width: 115px;
+    height: 40px;
+    margin-right: 4px;
+    margin-bottom: 10px;
+    font-size: 14px;
+    padding-top: 2px; 
+    padding-bottom: 2px;
+    border: 1px solid #d9d9d9;
+    border-radius: 3px;
+    background-color: white;
+    text-align: center;
+    line-height: 20px;
 }
+
+#content .right ul li a {
+    text-decoration:none;
+    color:black;
+}
+
 #content .right ul li:hover {
     border: 1px solid dodgerblue;
     border-radius: 3px 3px 3px 3px;
     background:dodgerblue;
-    color:white;
-    font-size: 15px;
-    margin-bottom: 10px;
-    margin-top: 10px;
-
+    font-size: 16px;
 }
+
 footer {
     margin: 0 auto;
     border: 1px solid dodgerblue;
@@ -98,6 +114,7 @@ footer {
     color: lightsteelblue;
     width: 100%;
 }
+
 footer ul {list-style-type: none;}
 footer ul li:hover {color:black;}
 
