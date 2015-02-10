@@ -64,8 +64,24 @@ def schedule_page(request, schedule_id):
     return render(request, 'schedule.html', {'schedule':schedule,})
 
 
+def questions(request):
+
+    questions = Question.objects.all()
+
+    quant = request.GET.get('quant', None)
+    tags = request.GET.get('tags', None)
+
+    if tags:
+        tags_name = tags.split(',')
+        tags = Tag.objects.filter(name__in=tags_name)
+        questions = questions.filter(tag__in=tags)
+
+    if quant:
+        quant = int(quant)
+        questions = questions[:quant]
+
+    return render(request, 'questions.html', {'questions': questions})
 
 
-
-
-
+#tudo que vem no request e texto.
+#diferenca de usar set_all e filter

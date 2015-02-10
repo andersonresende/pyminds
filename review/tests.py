@@ -243,7 +243,7 @@ class MainTest(TestCase):
 
     def test_get_schedule_page_show_questions_and_tags(self):
         questions = [Question.objects.create(text='q%s' % n) for n in range(1, 6)]
-        lst_tags = ['tg1','tg2']
+        lst_tags = ['tg1', 'tg2']
         lst_tags = [Tag.objects.create(name=t) for t in lst_tags]
         tag1, tag2 = lst_tags
         [tag1.questions.add(q) for q in questions[:2]]
@@ -277,11 +277,42 @@ class MainTest(TestCase):
         self.assertEqual(tags_name[4], q_tags[3].name)
         self.assertEqual(tags_name[3], q_tags[4].name)
 
+    def test_get_questions_quant_and_tag(self):
+        questions = [Question.objects.create(text='q%s' % n) for n in range(1, 6)]
+        lst_tags = ['tg1', 'tg2']
+        lst_tags = [Tag.objects.create(name=t) for t in lst_tags]
+        tag1, tag2 = lst_tags
+        [tag1.questions.add(q) for q in questions[:2]]
+        [tag2.questions.add(q) for q in questions[2:]]
 
-# Map não é possivel chamar funções passando os argumentos diretamente.
-# Map não é possivel passar mais de um argumento na função.
-# no entanto se vc for usar funcoes, precisando apenas de um map e um compression,
-# o map tem uma sintaxe mais interessante.
+        tags = ','.join([t.name for t in lst_tags])
+        quant = ''
+        url = '/questions/?tags={0}&quant={1}'.format(tags, quant)
+
+        client = Client()
+        response = client.get(url)
+
+        def recursive(questions):
+            if questions:
+                self.assertContains(response, questions[0].text)
+                recursive(questions[1:])
+
+        recursive(questions)
+
+
+        tags = ','.join([t for t in ['tg1']])
+        quant = 3
+        url = '/questions/?tags={0}&quant={1}'.format(tags, quant)
+        response = client.get(url)
+
+        questions = questions[3:]
+        def recursive(questions):
+            if questions:
+                self.assertNotContains(response, questions[0].text)
+                recursive(questions[1:])
+
+        recursive(questions)
+
 
 
 
