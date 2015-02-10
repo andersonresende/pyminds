@@ -18,7 +18,7 @@ class Schedule(models.Model):
     review = models.ForeignKey(Review)
 
     def __str__(self):
-        return 'Schedule %s' % self.date.strftime("%d/%m/%Y")
+        return 'Schedule %s %s' % (self.review.pk, self.date.strftime("%d/%m/%Y"))
 
     @staticmethod
     def get_current_shedules():
