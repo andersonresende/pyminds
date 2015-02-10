@@ -57,11 +57,11 @@ def schedule_page(request, schedule_id):
     schedule = get_object_or_404(Schedule, id=schedule_id)
 
     if request.method == 'POST':
-        schedule.checked = True
-        schedule.save()
+        review = schedule.review
+        Schedule.close_last_schedules(review)
         return redirect('/')
 
-    return render(request, 'schedule.html', {'schedule':schedule,})
+    return render(request, 'schedule.html', {'schedule': schedule})
 
 
 def questions(request):

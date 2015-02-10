@@ -20,16 +20,22 @@ class Schedule(models.Model):
     def __str__(self):
         return 'Schedule %s %s' % (self.review.pk, self.date.strftime("%d/%m/%Y"))
 
-    @staticmethod
-    def get_current_shedules():
+    @classmethod
+    def close_last_schedules(cls, review):
         today = datetime.datetime.today()
-        schedules = Schedule.objects.filter(date__lte=today, checked=False)
+        schedules = cls.objects.filter(date__lte=today, checked=False, review=review)
+        schedules.update(checked=True)
+
+    @classmethod
+    def get_current_shedules(cls):
+        today = datetime.datetime.today()
+        schedules = cls.objects.filter(date__lte=today, checked=False)
         return schedules
 
-    @staticmethod
-    def get_next_schedule():
+    @classmethod
+    def get_next_schedule(cls):
         today = datetime.datetime.today()
-        schedules = Schedule.objects.filter(checked=False).exclude(date__lte=today)
+        schedules = cls.objects.filter(checked=False).exclude(date__lte=today)
         if schedules:
             return schedules[0]
         else:
