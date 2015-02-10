@@ -83,5 +83,6 @@ def questions(request):
     return render(request, 'questions.html', {'questions': questions})
 
 
-#tudo que vem no request e texto.
-#diferenca de usar set_all e filter
+def closed_questions(request):
+    questions_list = Question.get_all_closed_questions().order_by('?')[:10]
+    return render(request, 'questions.html', {'questions': questions_list})
