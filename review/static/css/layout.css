@@ -106,9 +106,9 @@ header a {
 }
 
 #content .right .old:hover {
-    border: 1px solid red;
+    border: 1px solid #EE7942;
     border-radius: 3px 3px 3px 3px;
-    background:red;
+    background:#EE7942;
     font-size: 16px;
 }
 
