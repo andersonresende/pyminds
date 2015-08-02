@@ -36,3 +36,5 @@ nosetests.xml
 
 *.db
 .idea
+.idea/*
+
