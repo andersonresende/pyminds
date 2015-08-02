@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% load widget_tweaks %}
 
         {% block extra_head%}
             <script type="text/javascript">
@@ -9,22 +10,28 @@
                     });
 
                     $('ul.tagit input[type="text"]').attr('placeholder','tags...');
+                    $('ul.tagit input[type="text"]').attr('class','form-control');
                 });
             </script>
 
         {% endblock %}
 
-
         {% block content_left %}
-        <h3 class="title">Question {{number_next_question}}</h3>
-            <form method='POST' action=''>
-         {% csrf_token %}
-        {{ form }}
-         <input type="submit" id="btSubmit" value="Raise">
-                </form>
+                <h3>Question {{number_next_question}}</h3>
+                    <form method='POST' action='' class="">
+                     {% csrf_token %}
+                    <div class="form-group">
+                    {{ form.text|add_class:"form-control"}}
+                    </div>
+                    <div class="form-group">
+                    {{ form.tags|add_class:"form-control"}}
+                    </div>
+                    <div class="form-group">
+                        <input type="submit" id="btSubmit" value="Raise" class="btn btn-info btn-block">
+                    </div>
+                    </form>
 
-
-        <input type="hidden" id="myVar" name="variable" value="{{tags}}">
+                <input type="hidden" id="myVar" name="variable" value="{{tags}}">
         {% endblock %}
 
         {% block content_right %}
