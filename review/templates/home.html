@@ -2,18 +2,7 @@
 {% load widget_tweaks %}
 
         {% block extra_head%}
-            <script type="text/javascript">
-                $(document).ready(function() {
-                    var sampleTags = document.getElementById("myVar").value.split(',');
-                    $('#id_tags').tagit({
-                        availableTags: sampleTags
-                    });
-
-                    $('ul.tagit input[type="text"]').attr('placeholder','tags...');
-                    $('ul.tagit input[type="text"]').attr('class','form-control');
-                });
-            </script>
-
+            <script type="text/javascript"></script>
         {% endblock %}
 
         {% block content_left %}
@@ -25,7 +14,7 @@
                     {{ form.text|add_class:"form-control"}}
                     </div>
                     <div class="form-group">
-                    {{ form.tags|add_class:"form-control"}}
+                    {{ form.tags|add_class:"form-control"|attr:"data-role:tagsinput" }}
                     </div>
                     <div class="form-group">
                         <input type="submit" id="btSubmit" value="Raise" class="btn btn-info btn-block">
