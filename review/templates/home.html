@@ -17,6 +17,7 @@
         {% endblock %}
 
         {% block content_left %}
+            <div class="col-md-10">
                 <h3>Question {{number_next_question}}</h3>
                     <form method='POST' action='' class="">
                      {% csrf_token %}
@@ -32,6 +33,7 @@
                     </form>
 
                 <input type="hidden" id="myVar" name="variable" value="{{tags}}">
+            </div>
         {% endblock %}
 
         {% block content_right %}
