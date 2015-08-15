@@ -36,13 +36,16 @@
 
         {% block content_right %}
 
-        <h4>Schedules: {{count_schedules}}
-        next {{ next_schedule.date|date:"d/m/Y"  }}</h4>
-           <ul>
+        <div class="col-md-12">
+            <h4>Schedules: {{count_schedules}} next {{ next_schedule.date|date:"d/m/Y"  }}</h4>
+        </div>
+
         {% for s in schedules %}
-            <li><a href="{% url 'schedule_page' s.id %}">{{s}}</a></li>
+            <div class="col-md-4"><a href="{% url 'schedule_page' s.id %}">{{s}}</a></div>
        {% endfor %}
-            </ul>
+
+
+
             <ul>
                 <li class="old"><a href="{% url 'closed_questions' %}"> Review Questions</a></li>
             </ul>
