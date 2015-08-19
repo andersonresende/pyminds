@@ -34,10 +34,5 @@
         {% for s in schedules %}
             <div class="col-md-4"><a href="{% url 'schedule_page' s.id %}">{{s}}</a></div>
        {% endfor %}
-
-
-
-            <ul>
-                <li class="old"><a href="{% url 'closed_questions' %}"> Review Questions</a></li>
-            </ul>
+            <div class="col-md-12 old"><a href="{% url 'closed_questions' %}"> Review Questions</a></div>
 		{% endblock %}
