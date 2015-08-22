@@ -44,7 +44,7 @@ class Schedule(models.Model):
     @classmethod
     def get_current_shedules(cls):
         today = datetime.datetime.today()
-        schedules = cls.objects.filter(date__lte=today, checked=False)
+        schedules = cls.objects.filter(date__lte=today, checked=False).order_by('review').distinct('review__id')
         return schedules
 
     @classmethod
