@@ -110,24 +110,17 @@ class MainTest(TestCase):
         Testa se a home retorna as schedules corretas de acordo com suas
         datas.
         """
-        review = Review()
-        review.save()
+        review = Review.objects.create()
         today = datetime.date.today()
         before_today = today - datetime.timedelta(10)
         after_today = today + datetime.timedelta(10)
         for d in [today, before_today, after_today]:
-            s = Schedule()
-            s.date = d
-            s.review = review
-            s.save()
-
+            c_schedule({'date': d, 'review': review})
         schedules = Schedule.objects.all()
-        self.assertEqual(3, len(schedules))
         client = Client()
         response = client.get('/')
-        self.assertContains(response, 'Schedules: '+str(len(schedules)))
-        self.assertContains(response, schedules[0])
         self.assertContains(response, schedules[1])
+        self.assertNotContains(response, schedules[0])
         self.assertNotContains(response, schedules[2])
 
     def test_home_return_schedules_on_next_date(self):
