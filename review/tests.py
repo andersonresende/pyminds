@@ -260,7 +260,8 @@ class MainTest(TestCase):
     def test_home_schedules_ordered(self):
         review = Review()
         review.save()
-        lst_schedules_older = [c_schedule({'date': d, 'review': review}) for d in map(calc_date_before, [0, 10, 15, 25])]
+        lst_schedules_older = [c_schedule({'date': d, 'review': review})
+                               for d in map(calc_date_before, [0, 10, 15, 25])]
         lst_schedules = Schedule.get_current_shedules()
         cont = 3
         for sh in lst_schedules:
@@ -299,7 +300,6 @@ class MainTest(TestCase):
 
         recursive(questions)
 
-
         tags = ','.join([t for t in ['tg1']])
         quant = 3
         url = '/questions/?tags={0}&quant={1}'.format(tags, quant)
@@ -313,6 +313,14 @@ class MainTest(TestCase):
 
         recursive(questions)
 
-
-
+    def test_get_just_one_schedule_for_time(self):
+        """
+        Tests if just one schedule for review is returned when existing
+        other schedules open.
+        """
+        review = Review.objects.create()
+        for d in map(calc_date_before, [0, 10, 15, 25]):
+            c_schedule({'date': d, 'review': review})
+        response = self.client.get('/')
+        self.assertEqual(len(response.context['schedules']), 1)
 
