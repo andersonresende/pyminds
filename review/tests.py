@@ -18,6 +18,15 @@ calc_date_before = lambda x: datetime.date.today() - datetime.timedelta(x)
 calc_date_after = lambda x: datetime.date.today() + datetime.timedelta(x)
 
 
+def c_schedules(calc_date_func, review, dates=None):
+    """
+    That function creates schedules by review before or after date.
+    """
+    dates = dates or [0, 10, 15, 25]
+    return [c_schedule({'date': d, 'review': review})
+            for d in map(calc_date_func, dates)]
+
+
 class FunctionsTest(TestCase):
 
     def test_function_create_review(self):
@@ -301,3 +310,15 @@ class MainTest(TestCase):
         response = self.client.get('/')
         self.assertEqual(len(response.context['schedules']), 1)
 
+    def test_get_ordered_schedules(self):
+        """
+        Tests if the schedules are returned ordered by date.
+        """
+        review_one, review_two, review_tree = review_recipe.make(_quantity=3)
+        schedules_one = c_schedules(calc_date_before, review_one, [5])
+        schedules_two = c_schedules(calc_date_before, review_two, [6])
+        schedules_tree = c_schedules(calc_date_before, review_tree, [7])
+        schedules = Schedule.get_current_shedules()
+        self.assertEqual(schedules[0], schedules_one[0])
+        self.assertEqual(schedules[1], schedules_two[0])
+        self.assertEqual(schedules[2], schedules_tree[0])
