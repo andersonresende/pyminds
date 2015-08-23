@@ -1,6 +1,7 @@
 # -*- coding:utf-8 -*-
 
 from django.test import TestCase, Client
+from django.core.urlresolvers import reverse
 
 from mommy_recipes import review_recipe
 from .views import *
@@ -322,3 +323,17 @@ class MainTest(TestCase):
         self.assertEqual(schedules[0], schedules_one[0])
         self.assertEqual(schedules[1], schedules_two[0])
         self.assertEqual(schedules[2], schedules_tree[0])
+
+    def test_get_ordered_schedules_home(self):
+        """
+        Tests if the schedules are returned ordered by date at get home.
+        """
+        review_one, review_two, review_tree = review_recipe.make(_quantity=3)
+        schedules_one = c_schedules(calc_date_before, review_one, [5])
+        schedules_two = c_schedules(calc_date_before, review_two, [6])
+        schedules_tree = c_schedules(calc_date_before, review_tree, [7])
+        response = self.client.get(reverse("home"))
+        response_schedules = response.context['schedules']
+        self.assertEqual(response_schedules[0], schedules_one[0])
+        self.assertEqual(response_schedules[1], schedules_two[0])
+        self.assertEqual(response_schedules[2], schedules_tree[0])
