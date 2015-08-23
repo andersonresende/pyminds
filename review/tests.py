@@ -1,13 +1,8 @@
 # -*- coding:utf-8 -*-
-"""
-This file demonstrates writing tests using the unittest module. These will pass
-when you run "manage.py test".
 
-Replace this with more appropriate tests for your application.
-"""
-import datetime
 from django.test import TestCase, Client
-from .models import Question, Review, Schedule, Tag
+
+from mommy_recipes import review_recipe
 from .views import *
 
 
@@ -21,6 +16,7 @@ def r_test(lst_items, method, fix_value, alt_value):
 c_schedule = lambda x: Schedule.objects.create(**x)
 calc_date_before = lambda x: datetime.date.today() - datetime.timedelta(x)
 calc_date_after = lambda x: datetime.date.today() + datetime.timedelta(x)
+
 
 class FunctionsTest(TestCase):
 
@@ -41,6 +37,7 @@ class FunctionsTest(TestCase):
         self.assertEqual(2, len(schedules))
         for s in schedules:
             self.assertEqual(s.review, review)
+
 
 class MainTest(TestCase):
 
@@ -138,7 +135,6 @@ class MainTest(TestCase):
             response = client.get('/')
             self.assertContains(response, 'next %s' % lst_schedules[1].date.strftime('%d/%m/%Y'))
 
-
     def test_schedule_page(self):
         """
         Testa se a pagina de schedule e chamada corretamente, retornando
@@ -191,7 +187,6 @@ class MainTest(TestCase):
         self.assertRedirects(response, '/')
         response = client.get('/')
         self.assertNotContains(response, schedule)
-
 
     def test_tags_model_creation_with_questions(self):
         """Testa a criacao de uma tag e a sua ligacao com questions."""
@@ -249,17 +244,6 @@ class MainTest(TestCase):
         self.assertContains(response, schedules[0])
         self.assertContains(response, tag1.name)
         self.assertContains(response, tag2.name)
-
-    def test_home_schedules_ordered(self):
-        review = Review()
-        review.save()
-        lst_schedules_older = [c_schedule({'date': d, 'review': review})
-                               for d in map(calc_date_before, [0, 10, 15, 25])]
-        lst_schedules = Schedule.get_current_shedules()
-        cont = 3
-        for sh in lst_schedules:
-            self.assertEqual(sh.date, lst_schedules_older[cont].date)
-            cont -= 1
 
     def test_tags_ordered_by_name(self):
         tags_name = ['tg3', 'tg1', 'tg2', 'tg5', 'tg4']
