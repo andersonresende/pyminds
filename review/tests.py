@@ -4,6 +4,7 @@ from django.test import TestCase, Client
 from django.core.urlresolvers import reverse
 
 from mommy_recipes import review_recipe
+from model_mommy import mommy
 from .views import *
 
 
@@ -337,3 +338,13 @@ class MainTest(TestCase):
         self.assertEqual(response_schedules[0], schedules_one[0])
         self.assertEqual(response_schedules[1], schedules_two[0])
         self.assertEqual(response_schedules[2], schedules_tree[0])
+
+    def test_post_mark_not_remember_question(self):
+        """
+        Tests if a post at unlearn_question url change unlearn attr
+        of question to true.
+        """
+        question = mommy.make(Question)
+        self.client.post(reverse("unlearn_question", kwargs={'pk': question.pk}))
+        question = Question.objects.get(pk=question.pk)
+        self.assertEqual(question.unlearn, True)
