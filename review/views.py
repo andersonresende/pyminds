@@ -95,4 +95,7 @@ def closed_questions(request):
 class UnlearnQuestionView(View):
 
     def post(self, request, *args, **kwargs):
-        return HttpResponse("post")
+        question = Question.objects.get(pk=kwargs['pk'])
+        question.unlearn = True
+        question.save()
+        return HttpResponse("Updated")
