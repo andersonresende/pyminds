@@ -1,5 +1,9 @@
 import datetime
+from django.http import HttpResponse
+
 from django.shortcuts import render, redirect, get_object_or_404
+from django.views.generic import View
+
 from .forms import QuestionForm
 from .models import Question, Review, Schedule, Tag
 
@@ -86,3 +90,9 @@ def questions(request):
 def closed_questions(request):
     questions_list = Question.get_all_closed_questions().order_by('?')[:10]
     return render(request, 'questions.html', {'questions': questions_list})
+
+
+class UnlearnQuestionView(View):
+
+    def post(self, request, *args, **kwargs):
+        return HttpResponse("post")
