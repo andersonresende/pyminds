@@ -65,23 +65,27 @@ class Schedule(models.Model):
             return None
 
 
+class QuestionManager(models.Manager):
+
+    def closeds(self):
+        """
+        Return the questions with closed reviews.
+        """
+        return self.filter(review__in=Review.objects.closeds())
+
+
 class Question(models.Model):
     text = models.CharField(max_length=140, verbose_name="")
     date = models.DateTimeField(default=datetime.datetime.today())
     forgot = models.BooleanField(default=False)
     review = models.ForeignKey(Review, null=True, blank=True)
 
-    @classmethod
-    def get_all_closed_questions(cls):
-        reviews_list = Review.objects.closeds()
-        reviews_pk = [review.pk for review in reviews_list]
-        questions_list = cls.objects.filter(review__pk__in=reviews_pk)
-        return questions_list
+    objects = QuestionManager()
 
 
 class Tag(models.Model):
+    name = models.CharField(max_length=200)
+    questions = models.ManyToManyField(Question)
 
     class Meta:
         ordering = ['name']
-    name = models.CharField(max_length=200)
-    questions = models.ManyToManyField(Question)

@@ -84,5 +84,5 @@ def questions(request):
 
 
 def closed_questions(request):
-    questions_list = Question.get_all_closed_questions().order_by('?')[:10]
+    questions_list = Question.objects.closeds().order_by('?')[:10]
     return render(request, 'questions.html', {'questions': questions_list})
