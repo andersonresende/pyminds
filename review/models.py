@@ -2,25 +2,37 @@ import datetime
 from django.db import models
 
 
+class ReviewManager(models.Manager):
+
+    def closeds(self):
+        """
+        Return all closed reviews. Closed reviews
+        are reviews without open schedules.
+        """
+        return self.exclude(
+            pk__in=Schedule.objects.filter(
+                checked=False
+            ).values('review__pk'))
+
+
 class Review(models.Model):
 
-    def is_closed(self):
-        schedules_open = self.schedule_set.all().filter(checked=False).count()
-        if schedules_open:
-            return False
-        return True
-
-    def questions(self):
-        return self.question_set.all()
-
-    @classmethod
-    def get_all_closed(cls):
-        reviews_list = cls.objects.all()
-        closed_reviews = [review for review in reviews_list if review.is_closed()]
-        return closed_reviews
+    objects = ReviewManager()
 
     def __str__(self):
         return 'Review %s' % self.pk
+
+
+class ScheduleManager(models.Manager):
+
+    def currents(self):
+        """
+        Return all schedules in progress.
+        """
+        return self.filter(
+            date__lte=datetime.datetime.today(),
+            checked=False
+        ).order_by('review').distinct('review__id')
 
 
 class Schedule(models.Model):
@@ -30,7 +42,9 @@ class Schedule(models.Model):
     checked = models.BooleanField(default=False)
     rate = models.IntegerField(null=True, blank=True)
     date = models.DateField()
-    review = models.ForeignKey(Review)
+    review = models.ForeignKey(Review, related_name='questions')
+
+    objects = ScheduleManager()
 
     def __str__(self):
         return 'Schedule %s %s' % (self.review.pk, self.date.strftime("%d/%m/%Y"))
@@ -40,12 +54,6 @@ class Schedule(models.Model):
         today = datetime.datetime.today()
         schedules = cls.objects.filter(date__lte=today, checked=False, review=review)
         schedules.update(checked=True)
-
-    @classmethod
-    def get_current_shedules(cls):
-        today = datetime.datetime.today()
-        schedules = cls.objects.filter(date__lte=today, checked=False).order_by('review').distinct('review__id')
-        return schedules
 
     @classmethod
     def get_next_schedule(cls):
@@ -65,7 +73,7 @@ class Question(models.Model):
 
     @classmethod
     def get_all_closed_questions(cls):
-        reviews_list = Review.get_all_closed()
+        reviews_list = Review.objects.closeds()
         reviews_pk = [review.pk for review in reviews_list]
         questions_list = cls.objects.filter(review__pk__in=reviews_pk)
         return questions_list

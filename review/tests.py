@@ -319,7 +319,7 @@ class MainTest(TestCase):
         schedules_one = c_schedules(calc_date_before, review_one, [5])
         schedules_two = c_schedules(calc_date_before, review_two, [6])
         schedules_tree = c_schedules(calc_date_before, review_tree, [7])
-        schedules = Schedule.get_current_shedules()
+        schedules = Schedule.objects.currents()
         self.assertEqual(schedules[0], schedules_one[0])
         self.assertEqual(schedules[1], schedules_two[0])
         self.assertEqual(schedules[2], schedules_tree[0])

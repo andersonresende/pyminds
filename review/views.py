@@ -37,7 +37,7 @@ def application_home(request):
             return redirect('/')
 
     question_form = QuestionForm().as_p()
-    schedules = Schedule.get_current_shedules()
+    schedules = Schedule.objects.currents()
     next_schedule = Schedule.get_next_schedule()
     count_schedules = Schedule.objects.filter(checked=False).count()
     number_next_question = Question.objects.all().count() + 1
