@@ -60,7 +60,8 @@ class Schedule(models.Model):
 class Question(models.Model):
     text = models.CharField(max_length=140, verbose_name="")
     date = models.DateTimeField(default=datetime.datetime.today())
-    review = models.ForeignKey(Review, null=True,blank=True)
+    forgot = models.BooleanField(default=False)
+    review = models.ForeignKey(Review, null=True, blank=True)
 
     @classmethod
     def get_all_closed_questions(cls):
