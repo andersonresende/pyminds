@@ -1,5 +1,10 @@
 import datetime
+import json
+
 from django.shortcuts import render, redirect, get_object_or_404
+from django.views.generic.base import View
+from django.http import HttpResponse
+
 from .forms import QuestionForm
 from .models import Question, Review, Schedule, Tag
 
@@ -65,17 +70,13 @@ def schedule_page(request, schedule_id):
 
 
 def questions(request):
-
     questions = Question.objects.all()
-
     quant = request.GET.get('quant', None)
     tags = request.GET.get('tags', None)
-
     if tags:
         tags_name = tags.split(',')
         tags = Tag.objects.filter(name__in=tags_name)
         questions = questions.filter(tag__in=tags)
-
     if quant:
         quant = int(quant)
         questions = questions[:quant]
@@ -86,3 +87,14 @@ def questions(request):
 def closed_questions(request):
     questions_list = Question.objects.closeds().order_by('?')[:10]
     return render(request, 'questions.html', {'questions': questions_list})
+
+
+class ForgotQuestionView(View):
+
+    def post(self, request, *args, **kwargs):
+        question_pk = kwargs.get('pk')
+        question = get_object_or_404(Question, pk=question_pk)
+        question.update_forgot()
+        return HttpResponse(
+            json.dumps({'message': 'Success updated'}),
+            content_type="application/json")

@@ -82,6 +82,10 @@ class Question(models.Model):
 
     objects = QuestionManager()
 
+    def update_forgot(self):
+        self.forgot = True
+        self.save()
+
 
 class Tag(models.Model):
     name = models.CharField(max_length=200)

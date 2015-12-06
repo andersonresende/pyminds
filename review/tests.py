@@ -3,7 +3,7 @@
 from django.test import TestCase, Client
 from django.core.urlresolvers import reverse
 
-from mommy_recipes import review_recipe
+from mommy_recipes import review_recipe, question_recipe
 from .views import *
 
 
@@ -337,3 +337,12 @@ class MainTest(TestCase):
         self.assertEqual(response_schedules[0], schedules_one[0])
         self.assertEqual(response_schedules[1], schedules_two[0])
         self.assertEqual(response_schedules[2], schedules_tree[0])
+
+    def test_forgot_question(self):
+        """
+        Tests if a question atribute forgot is updated.
+        """
+        question_pk = question_recipe.make(forgot=False).pk
+        self.client.post(reverse('forgot_question', kwargs={'pk': question_pk}))
+        question = Question.objects.get(pk=question_pk)
+        self.assertTrue(question.forgot)
