@@ -146,3 +146,24 @@ footer ul li:hover {color:black;}
     padding-left: 0px;
     color: #2D2D2D;
 }
+
+#content .left .schedule-ul .btForgot {
+    text-transform: uppercase;
+    border: medium none;
+    cursor: pointer;
+    color: white;
+    background: none repeat scroll 0 0 #FF6660;
+    width: 100px;
+    height:40px;
+    font-weight: 700;
+    font-family: Geneva;
+    font-size: 12px;
+    border-radius: 3px 3px 3px 3px;
+    text-decoration: none;
+    padding: 2px 3px 2px 3px;
+}
+
+#content .left .schedule-ul .btForgot:hover {
+    border: 1px solid #FF6680;
+    border-radius: 3px 3px 3px 3px;
+}

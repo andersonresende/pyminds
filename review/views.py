@@ -92,7 +92,7 @@ def closed_questions(request):
 class ForgotQuestionView(View):
 
     def post(self, request, *args, **kwargs):
-        question_pk = kwargs.get('pk')
+        question_pk = request.POST.get('pk')
         question = get_object_or_404(Question, pk=question_pk)
         question.update_forgot()
         return HttpResponse(

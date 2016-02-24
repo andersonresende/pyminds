@@ -87,7 +87,7 @@ class MainTest(TestCase):
 
         """
         client = Client()
-        response = client.post('/',data={'text': ''})
+        response = client.post('/', data={'text': ''})
         questions = Question.objects.all()
         self.assertEqual(0, len(questions))
         self.assertTemplateUsed(response, 'home.html')
@@ -343,6 +343,6 @@ class MainTest(TestCase):
         Tests if a question atribute forgot is updated.
         """
         question_pk = question_recipe.make(forgot=False).pk
-        self.client.post(reverse('forgot_question', kwargs={'pk': question_pk}))
+        self.client.post(reverse('forgot_question'), data={'pk': question_pk})
         question = Question.objects.get(pk=question_pk)
         self.assertTrue(question.forgot)
