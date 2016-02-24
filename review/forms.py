@@ -11,7 +11,7 @@ def create_tags(question, tags):
 class QuestionForm(forms.ModelForm):
     class Meta:
         model = Question
-        exclude = ('date', 'review')
+        exclude = ('date', 'review', 'forgot')
         widgets = {'text': forms.Textarea(attrs={"placeholder": "Insert your question here..."})}
 
     tags = forms.CharField(max_length=100, label='', required=False,)
