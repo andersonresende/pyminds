@@ -89,7 +89,7 @@ class Question(models.Model):
 
 class Tag(models.Model):
     name = models.CharField(max_length=200)
-    questions = models.ManyToManyField(Question)
+    questions = models.ManyToManyField(Question, related_name='tags')
 
     class Meta:
         ordering = ['name']
