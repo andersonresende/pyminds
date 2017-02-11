@@ -7,7 +7,7 @@
             $("#forgot-question").live("click", function() {
                 var pk = $(this).attr("question-id");
                 $.post(
-                    "{% url 'forgot_question' %}",
+                    "{% url 'review:forgot_question' %}",
                     {pk: pk,
                     csrfmiddlewaretoken: "{{ csrf_token }}"
                     }
@@ -26,7 +26,7 @@
     {% for question in schedule.review.question_set.all %}
         <li>
             {{ question.text }}
-            {% for tag in question.tag_set.all %}
+            {% for tag in question.tags.all %}
                 <span class="mytags">{{tag.name}}</span>
             {% endfor %}
             <a href="#" id="forgot-question" question-id="{{ question.id }}" class="btForgot">Forget</a>

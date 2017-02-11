@@ -3,8 +3,8 @@
 from django.test import TestCase, Client
 from django.core.urlresolvers import reverse
 
-from mommy_recipes import review_recipe, question_recipe
-from .views import *
+from review.mommy_recipes import review_recipe, question_recipe
+from review.views import *
 
 
 def r_test(lst_items, method, fix_value, alt_value):
@@ -211,7 +211,7 @@ class MainTest(TestCase):
         
         list_questions = tag.questions.all()
         self.assertEqual(2, len(list_questions))
-        [self.assertEqual(tag.pk, q.tag_set.all()[0].pk) for q in list_questions]
+        [self.assertEqual(tag.pk, q.tags.all()[0].pk) for q in list_questions]
 
     def test_home_post_save_question_and_tag(self):
         client = Client()
@@ -332,7 +332,7 @@ class MainTest(TestCase):
         schedules_one = c_schedules(calc_date_before, review_one, [5])
         schedules_two = c_schedules(calc_date_before, review_two, [6])
         schedules_tree = c_schedules(calc_date_before, review_tree, [7])
-        response = self.client.get(reverse("home"))
+        response = self.client.get(reverse("review:home"))
         response_schedules = response.context['schedules']
         self.assertEqual(response_schedules[0], schedules_one[0])
         self.assertEqual(response_schedules[1], schedules_two[0])
@@ -343,6 +343,6 @@ class MainTest(TestCase):
         Tests if a question atribute forgot is updated.
         """
         question_pk = question_recipe.make(forgot=False).pk
-        self.client.post(reverse('forgot_question'), data={'pk': question_pk})
+        self.client.post(reverse('review:forgot_question'), data={'pk': question_pk})
         question = Question.objects.get(pk=question_pk)
         self.assertTrue(question.forgot)

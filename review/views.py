@@ -1,7 +1,9 @@
 import datetime
 import json
 
+from django.views.generic import FormView
 from django.shortcuts import render, redirect, get_object_or_404
+from django.core.urlresolvers import reverse_lazy
 from django.views.generic.base import View
 from django.http import HttpResponse
 
@@ -9,10 +11,19 @@ from .forms import QuestionForm
 from .models import Question, Review, Schedule, Tag
 
 
+def create_tags(question, tags):
+    if tags and question:
+        for tag in tags.split(','):
+            tag, _ = Tag.objects.get_or_create(name=tag.lower())
+            question.tags.add(tag)
+
+
 def create_schedules(review, *args):
     today = datetime.datetime.today()
     for d in args:
-        schedule = Schedule(date=today+datetime.timedelta(d), review=review)
+        schedule = Schedule(
+            date=today + datetime.timedelta(d), review=review
+        )
         schedule.save()
 
 
@@ -31,31 +42,32 @@ def create_all():
         review = create_review(questions)
         create_schedules(review, 5, 15, 35, 60, 90)
 
-#talvez todos esses metodos acima deveriam estar no save de um objeto review
 
-def application_home(request):
-    if request.method == 'POST':
-        question_form = QuestionForm(request.POST)
-        if question_form.is_valid():
-            question_form.save()
-            create_all()
-            return redirect('/')
+class HomeView(FormView):
+    success_url = reverse_lazy('review:home')
+    template_name = 'home.html'
+    form_class = QuestionForm
 
-    question_form = QuestionForm().as_p()
-    schedules = Schedule.objects.currents()
-    next_schedule = Schedule.get_next_schedule()
-    count_schedules = Schedule.objects.filter(checked=False).count()
-    number_next_question = Question.objects.all().count() + 1
-    tags_name = [str(t['name']) for t in Tag.objects.all().values('name')]
-    tags = ','.join(tags_name)
-    return render(request, 'home.html', {
-        'form': question_form,
-        'schedules': schedules,
-        'count_schedules': count_schedules,
-        'next_schedule': next_schedule,
-        'number_next_question': number_next_question,
-        'tags': tags,
-    },)
+    def form_valid(self, form):
+        question = form.save()
+        tags = form['tags'].value()
+        if tags:
+            create_tags(question, tags)
+        create_all()
+        response = super(HomeView, self).form_valid(form)
+        return response
+
+    def get_context_data(self, **kwargs):
+        context = super(HomeView, self).get_context_data(**kwargs)
+        context['schedules'] = Schedule.objects.currents()
+        context['next_schedule'] = Schedule.get_next_schedule()
+        context['count_schedules'] = Schedule.objects.filter(
+            checked=False
+        ).count()
+        context['number_next_question'] = Question.objects.all().count() + 1
+        tags_name = [str(t['name']) for t in Tag.objects.all().values('name')]
+        context['tags'] = ','.join(tags_name)
+        return context
 
 
 def schedule_page(request, schedule_id):
@@ -76,7 +88,7 @@ def questions(request):
     if tags:
         tags_name = tags.split(',')
         tags = Tag.objects.filter(name__in=tags_name)
-        questions = questions.filter(tag__in=tags)
+        questions = questions.filter(tags__in=tags)
     if quant:
         quant = int(quant)
         questions = questions[:quant]
