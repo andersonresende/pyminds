@@ -11,10 +11,14 @@ from .forms import QuestionForm
 from .models import Question, Review, Schedule, Tag
 
 
+def _clean_tag_name(tag_name):
+    return tag_name.lower().strip()
+
+
 def create_tags(question, tags):
     if tags and question:
         for tag in tags.split(','):
-            tag, _ = Tag.objects.get_or_create(name=tag.lower())
+            tag, _ = Tag.objects.get_or_create(name=_clean_tag_name(tag))
             question.tags.add(tag)
 
 
