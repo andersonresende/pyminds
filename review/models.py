@@ -93,3 +93,6 @@ class Tag(models.Model):
 
     class Meta:
         ordering = ['name']
+
+    def __str__(self):
+        return 'Review {}'.format(self.name)
