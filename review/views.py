@@ -1,4 +1,3 @@
-import datetime
 import json
 
 from django.views.generic import FormView
@@ -7,44 +6,9 @@ from django.core.urlresolvers import reverse_lazy
 from django.views.generic.base import View
 from django.http import HttpResponse
 
-from .forms import QuestionForm
-from .models import Question, Review, Schedule, Tag
-
-
-def _clean_tag_name(tag_name):
-    return tag_name.lower().strip()
-
-
-def create_tags(question, tags):
-    if tags and question:
-        for tag in tags.split(','):
-            tag, _ = Tag.objects.get_or_create(name=_clean_tag_name(tag))
-            question.tags.add(tag)
-
-
-def create_schedules(review, *args):
-    today = datetime.datetime.today()
-    for d in args:
-        schedule = Schedule(
-            date=today + datetime.timedelta(d), review=review
-        )
-        schedule.save()
-
-
-def create_review(questions):
-    review = Review()
-    review.save()
-    for q in questions:
-        q.review = review
-        q.save()
-    return review
-
-
-def create_all():
-    questions = Question.objects.filter(review=None)
-    if questions.count() == 5:
-        review = create_review(questions)
-        create_schedules(review, 5, 15, 35, 60, 90)
+from review.forms import QuestionForm
+from review.models import Question, Schedule, Tag
+from review.helpers import create_tags, create_all
 
 
 class HomeView(FormView):

@@ -1,10 +1,12 @@
 # -*- coding:utf-8 -*-
+import datetime
 
 from django.test import TestCase, Client
 from django.core.urlresolvers import reverse
 
 from review.mommy_recipes import review_recipe, question_recipe
-from review.views import *
+from review.helpers import create_review, create_all, create_schedules
+from review.models import Question, Schedule, Tag, Review
 
 
 def r_test(lst_items, method, fix_value, alt_value):
