@@ -49,5 +49,3 @@ def _normalize_and_split_data(text):
         categories_str = text[last_open_sqbra + 1:-1]
         message = text[:last_open_sqbra]
     return message.strip(), categories_str
-
-
