@@ -1,9 +1,8 @@
 run:
-	python manage.py runserver --settings pyminds.settings.local
+	python manage.py runserver
 
 test:
-	python manage.py test review --settings pyminds.settings.test
+	python manage.py test review
 
 shell:
-	python manage.py shell --settings pyminds.settings.local
-	
+	python manage.py shell

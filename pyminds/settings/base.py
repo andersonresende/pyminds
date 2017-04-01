@@ -22,8 +22,12 @@ MANAGERS = ADMINS
 
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
-BASE_DIR = os.path.dirname(os.path.dirname(__file__))
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
+
+
+def base_dir_join(*args):
+    return os.path.join(BASE_DIR, *args)
 
 
 # Quick-start development settings - unsuitable for production
@@ -144,5 +148,5 @@ STATICFILES_DIRS = (
 # https://warehouse.python.org/project/whitenoise/
 STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
 
-## Slack token api
+# Slack token api
 SLACK_TOKEN_API = config('SLACK_TOKEN_API', '')

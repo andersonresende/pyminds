@@ -1,5 +1,7 @@
 import datetime
 
+from templated_email import send_templated_mail
+
 from review.models import Tag, Review, Question, Schedule
 
 
@@ -49,3 +51,19 @@ def _normalize_and_split_data(text):
         categories_str = text[last_open_sqbra + 1:-1]
         message = text[:last_open_sqbra]
     return message.strip(), categories_str
+
+
+def send_review_email():
+    schedules = Schedule.objects.to_send()
+    for schedule in schedules:
+        send_templated_mail(
+            template_name='review',
+            from_email='from@example.com',
+            recipient_list=['to@example.com'],
+            context={
+                # 'username':request.user.username,
+                # 'full_name':request.user.get_full_name(),
+                # 'signup_date':request.user.date_joined
+            },
+        )
+    Schedule.objects.update_to_emailed()
