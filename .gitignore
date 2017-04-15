@@ -44,3 +44,6 @@ spritesmith.scss
 
 # templated email
 tmp_email/
+
+#script for local test
+spt.py

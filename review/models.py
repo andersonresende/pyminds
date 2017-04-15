@@ -24,7 +24,7 @@ class Review(models.Model):
         return 'Review %s' % self.pk
 
 
-class ScheduleManager(models.Manager):
+class ScheduleQuerySet(models.QuerySet):
 
     def update_to_emailed(self):
         return self.to_send_email().update(emailed=True)
@@ -58,10 +58,10 @@ class Schedule(models.Model):
     date = models.DateField()
     review = models.ForeignKey(Review, related_name='questions')
 
-    objects = ScheduleManager()
+    objects = ScheduleQuerySet.as_manager()
 
     def __str__(self):
-        return 'Schedule {} {}'.fomart(
+        return 'Schedule {} {}'.format(
             self.review.pk,
             self.date.strftime("%d/%m/%Y")
         )
