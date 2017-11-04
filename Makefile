@@ -6,3 +6,6 @@ test:
 
 shell:
 	python manage.py shell
+
+worker:
+	celery --app=pyminds.celery worker --loglevel=info
