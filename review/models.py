@@ -1,4 +1,5 @@
 import datetime
+
 from django.db import models
 
 
@@ -23,11 +24,23 @@ class Review(models.Model):
         return 'Review %s' % self.pk
 
 
-class ScheduleManager(models.Manager):
+class ScheduleQuerySet(models.QuerySet):
+
+    def update_to_emailed(self):
+        return self.to_send_email().update(emailed=True)
+
+    def to_send_email(self):
+        """
+        Return the schedules to send over email
+        """
+        return self.filter(
+            date__lte=datetime.datetime.today(),
+            emailed=False
+        )
 
     def currents(self):
         """
-        Return all schedules in progress.
+        Return the schedules in progress.
         """
         return self.filter(
             date__lte=datetime.datetime.today(),
@@ -40,19 +53,27 @@ class Schedule(models.Model):
         ordering = ['date']
 
     checked = models.BooleanField(default=False)
+    emailed = models.BooleanField(default=False)
     rate = models.IntegerField(null=True, blank=True)
     date = models.DateField()
     review = models.ForeignKey(Review, related_name='questions')
 
-    objects = ScheduleManager()
+    objects = ScheduleQuerySet.as_manager()
 
     def __str__(self):
-        return 'Schedule %s %s' % (self.review.pk, self.date.strftime("%d/%m/%Y"))
+        return 'Schedule {} {}'.format(
+            self.review.pk,
+            self.date.strftime("%d/%m/%Y")
+        )
 
     @classmethod
     def close_last_schedules(cls, review):
         today = datetime.datetime.today()
-        schedules = cls.objects.filter(date__lte=today, checked=False, review=review)
+        schedules = cls.objects.filter(
+            date__lte=today,
+            checked=False,
+            review=review
+        )
         schedules.update(checked=True)
 
     @classmethod

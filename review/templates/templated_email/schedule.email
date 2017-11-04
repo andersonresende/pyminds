@@ -1,0 +1,10 @@
+{% block subject %}My subject for {{username}}{% endblock %}
+{% block html %}
+  <a href="{{ host }}{% url 'review:schedule_page' schedule.id %}">{{schedule}}</a>	
+  {% for question in schedule.review.question_set.all %}
+            <h3>{{ question.text }}</h3>
+            {% for tag in question.tags.all %}
+                {{tag.name}}
+            {% endfor %}
+    {% endfor %}
+{% endblock %}

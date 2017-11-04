@@ -1,6 +1,8 @@
 # -*- coding:utf-8 -*-
 import datetime
 
+from model_mommy import mommy
+
 from django.test import TestCase, Client
 from django.core.urlresolvers import reverse
 
@@ -60,7 +62,7 @@ class MainTest(TestCase):
         """
         client = Client()
         response = client.get('/')
-        self.assertTemplateUsed(response,'home.html')
+        self.assertTemplateUsed(response, 'home.html')
 
     def test_home_post_save_questions_and_redirects_correct(self):
         """
@@ -295,6 +297,7 @@ class MainTest(TestCase):
         response = client.get(url)
 
         questions = questions[3:]
+
         def recursive(questions):
             if questions:
                 self.assertNotContains(response, questions[0].text)
@@ -345,6 +348,37 @@ class MainTest(TestCase):
         Tests if a question atribute forgot is updated.
         """
         question_pk = question_recipe.make(forgot=False).pk
-        self.client.post(reverse('review:forgot_question'), data={'pk': question_pk})
+        self.client.post(
+            reverse('review:forgot_question'),
+            data={'pk': question_pk}
+        )
         question = Question.objects.get(pk=question_pk)
         self.assertTrue(question.forgot)
+
+    def test_schedules_to_send_email(self):
+        """
+        Tests if the right schedules are get to send email.
+        """
+        schedules_to_send = mommy.make(
+            Schedule,
+            date=datetime.datetime.today(),
+            emailed=False,
+            _quantity=3,
+        )
+        mommy.make(Schedule, emailed=True)
+        schedules = Schedule.objects.to_send_email()
+        self.assertEqual(schedules.count(), len(schedules_to_send))
+        self.assertListEqual(list(schedules), schedules_to_send)
+
+    def test_schedules_are_updated_to_emailed(self):
+        """
+        Tests if the schedules are updated to emailed.
+        """
+        schedule = mommy.make(
+            Schedule,
+            date=datetime.datetime.today(),
+            emailed=False,
+        )
+        Schedule.objects.update_to_emailed()
+        schedule.refresh_from_db()
+        self.assertEqual(schedule.emailed, True)
