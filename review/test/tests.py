@@ -382,3 +382,16 @@ class MainTest(TestCase):
         Schedule.objects.update_to_emailed()
         schedule.refresh_from_db()
         self.assertEqual(schedule.emailed, True)
+
+    def test_create_question_with_reference_link(self):
+        """
+        Tests if the questions is created with a reference link.
+        """
+        client = Client()
+        reference_link = 'http://www.reference.com'
+        response = client.post("/", data={'text': 'Question1', 'reference_link': reference_link})
+        self.assertRedirects(response, '/')
+        lst_questions = Question.objects.all()
+        self.assertEqual(1, len(lst_questions))
+        question = lst_questions[0]
+        self.assertEqual(question.reference_link, reference_link)
