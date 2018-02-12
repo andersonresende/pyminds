@@ -16,25 +16,22 @@
 
 
         {% block content_left %}
-        <h3 class="title">Question {{number_next_question}}</h3>
+            <h3 class="title">Question {{number_next_question}}</h3>
             <form method='POST' action=''>
-         {% csrf_token %}
-        {{ form }}
-         <input type="submit" id="btSubmit" value="Raise">
-                </form>
-
-
-        <input type="hidden" id="myVar" name="variable" value="{{tags}}">
+                {% csrf_token %}
+                {{ form }}
+                <input type="submit" id="btSubmit" value="Raise">
+            </form>
+            <input type="hidden" id="myVar" name="variable" value="{{tags}}">
         {% endblock %}
 
         {% block content_right %}
-
-        <h4>Schedules: {{count_schedules}}
-        next {{ next_schedule.date|date:"d/m/Y"  }}</h4>
-           <ul>
-        {% for s in schedules %}
-            <li><a href="{% url 'review:schedule_page' s.id %}">{{s}}</a></li>
-       {% endfor %}
+            <h4>Schedules: {{count_schedules}}
+                next {{ next_schedule.date|date:"d/m/Y"  }}</h4>
+            <ul>
+                {% for s in schedules %}
+                    <li><a href="{% url 'review:schedule_page' s.id %}">{{s}}</a></li>
+                {% endfor %}
             </ul>
             <ul>
                 <li class="old"><a href="{% url 'review:closed_questions' %}"> Review Questions</a></li>

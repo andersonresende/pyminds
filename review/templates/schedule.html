@@ -25,7 +25,8 @@
     <ul class="schedule-ul">
     {% for question in schedule.review.question_set.all %}
         <li>
-            {{ question.text }}
+            {{ question.text }} <br/>
+            {{ question.reference_link }}
             {% for tag in question.tags.all %}
                 <span class="mytags">{{tag.name}}</span>
             {% endfor %}

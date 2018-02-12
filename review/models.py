@@ -99,6 +99,7 @@ class Question(models.Model):
     text = models.CharField(max_length=140, verbose_name="")
     date = models.DateTimeField(default=datetime.datetime.today())
     forgot = models.BooleanField(default=False)
+    reference_link = models.URLField(blank=True, verbose_name="")
     review = models.ForeignKey(Review, null=True, blank=True)
 
     objects = QuestionManager()

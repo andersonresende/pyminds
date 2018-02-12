@@ -6,16 +6,12 @@
     <ul class="schedule-ul">
     {% for q in questions %}
         <li>
-            {{ q.text }}
+            {{ q.text }} <br/>
+            {{ q.reference_link }}
             {% for tag in q.tags.all %}
                 <span class="mytags">{{tag.name}}</span>
             {% endfor %}
         </li>
     {% endfor %}
     </ul>
-    <!--<form class="schedule-form" method="post" action="">-->
-        <!--{% csrf_token %}-->
-        <!--<input id="btSubmit" type="submit" value="submeter"/>-->
-        <!--</form>-->
-
 {% endblock %}

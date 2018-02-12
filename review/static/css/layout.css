@@ -21,9 +21,21 @@ header a {
     border-radius: 3px 3px 3px 3px;
     transition: all 0.5s ease 0s;
     z-index: 1;
-
 }
 #content .left #id_text:focus{border-color:lightsteelblue }
+#content .left #id_reference_link {
+    font-family: Geneva;
+    font-size: 14px;
+    resize: none;
+    width:400px;
+    height:30px;
+    border: 1px solid #D9D9D9;
+    border-radius: 3px 3px 3px 3px;
+    transition: all 0.5s ease 0s;
+    z-index: 1;
+    padding-left: 5px;
+}
+#content .left #id_reference_link:focus{border-color:lightsteelblue }
 #content .left #btSubmit {
     text-transform: uppercase;
     border: medium none;
