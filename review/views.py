@@ -1,5 +1,7 @@
 import json
 
+from random import shuffle
+
 from django.views.generic import FormView
 from django.shortcuts import render, redirect, get_object_or_404
 from django.core.urlresolvers import reverse_lazy
@@ -59,8 +61,8 @@ def questions(request):
         questions = questions.filter(tags__in=tags)
     if quant:
         quant = int(quant)
-        questions = questions[:quant]
-
+        questions = list(questions[:quant])
+        shuffle(questions)
     return render(request, 'questions.html', {'questions': questions})
 
 
